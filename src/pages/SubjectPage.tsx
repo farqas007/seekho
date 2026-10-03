@@ -132,9 +132,8 @@ export function SubjectPage({ classId, subjectSlug }: SubjectPageProps) {
           <div className="container">
             <h2 className="subject-next-title">What comes next?</h2>
             <p className="subject-next-text">
-              Every course links to its own page. Lesson pages and quizzes are
-              still being written, so a course page currently shows what to
-              expect.
+              Every course links to its own page, which lists its lessons in
+              order. Lessons that are ready finish with a short quiz.
             </p>
             <BackLink to={classPath(grade.id)}>Back to {grade.name}</BackLink>
           </div>

@@ -70,6 +70,28 @@
   border-color: rgba(14, 116, 144, 0.25);
 }
 
+.lesson-quiz-cta {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0.7rem 1.5rem;
+  border-radius: 0.625rem;
+  background: #0e7490;
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 150ms ease, box-shadow 150ms ease;
+}
+
+.lesson-quiz-cta:hover {
+  background: #0b5f74;
+}
+
+.lesson-quiz-cta:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.6);
+  outline-offset: 3px;
+}
+
 .lesson-navigation {
   padding: 1.5rem 0 3rem;
 }

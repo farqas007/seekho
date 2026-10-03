@@ -5,13 +5,16 @@ import { BackLink } from '../components/ui/BackLink';
 import { getGradeById } from '../data/classes';
 import { getCourseById } from '../data/courses';
 import { getLessonById, getLessonsForCourse, getNextLesson, getPreviousLesson } from '../data/lessons';
+import { getQuizForLesson, hasQuestions } from '../data/quizzes';
 import { getSubjectBySlug } from '../data/subjects';
 import { usePageTitle } from '../hooks/usePageTitle';
+import { Link } from '../router/Link';
 import {
   HOME_ROUTE,
   classPath,
   coursePath,
   lessonPath,
+  quizPath,
   subjectPath,
 } from '../router/routes';
 import './LessonPage.css';
@@ -208,15 +211,12 @@ export function LessonPage({ classId, subjectSlug, courseId, lessonId }: LessonP
               </article>
             )}
 
-            <article className="lesson-block lesson-next-info" aria-labelledby="whats-next-heading">
-              <h3 id="whats-next-heading" className="lesson-block-title">
-                What comes next?
-              </h3>
-              <p className="lesson-block-text">
-                Quizzes will be added in the next subsystem to help check what you have
-                understood from this lesson.
-              </p>
-            </article>
+            <QuizCallout
+              classId={grade.id}
+              subjectSlug={subject.slug}
+              courseId={course.courseId}
+              lessonId={lesson.lessonId}
+            />
           </div>
         </section>
 
@@ -279,6 +279,49 @@ export function LessonPage({ classId, subjectSlug, courseId, lessonId }: LessonP
 
       <Footer />
     </>
+  );
+}
+
+type QuizCalloutProps = {
+  classId: string;
+  subjectSlug: string;
+  courseId: string;
+  lessonId: string;
+};
+
+/**
+ * Closing block of a lesson: a clear "Start Quiz" entry point when the lesson
+ * has a quiz ready, otherwise a short note about what comes next.
+ */
+function QuizCallout({ classId, subjectSlug, courseId, lessonId }: QuizCalloutProps) {
+  const quiz = getQuizForLesson(classId, subjectSlug, courseId, lessonId);
+
+  return (
+    <article className="lesson-block lesson-next-info" aria-labelledby="whats-next-heading">
+      <h3 id="whats-next-heading" className="lesson-block-title">
+        What comes next?
+      </h3>
+
+      {quiz === undefined ? (
+        <p className="lesson-block-text">
+          A quiz for this lesson is coming soon. In the meantime, read the recap above and try
+          the practice activity once more.
+        </p>
+      ) : (
+        <>
+          <p className="lesson-block-text">
+            Ready to check what you remember? Take the short quiz for this lesson - it has{' '}
+            {quiz.questions.length} {quiz.questions.length === 1 ? 'question' : 'questions'}.
+          </p>
+          <Link
+            to={quizPath(classId, subjectSlug, courseId, lessonId, quiz.quizId)}
+            className="lesson-quiz-cta"
+          >
+            {hasQuestions(quiz) ? 'Start Quiz' : 'View quiz'}
+          </Link>
+        </>
+      )}
+    </article>
   );
 }
 

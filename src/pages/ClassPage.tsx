@@ -98,9 +98,8 @@ export function ClassPage({ classId }: ClassPageProps) {
           <div className="container">
             <h2 className="class-next-title">What comes next?</h2>
             <p className="class-next-text">
-              Every subject has a page with its own courses. Lesson pages and
-              quizzes are still on the way, so a course page currently shows what
-              to expect.
+              Every subject has a page with its own courses. A course lists its
+              lessons, and each lesson finishes with a short quiz.
             </p>
             <BackLink to={CLASSES_ANCHOR}>Back to Classes</BackLink>
           </div>

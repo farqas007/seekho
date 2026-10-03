@@ -6,6 +6,7 @@ import { ClassPage } from './pages/ClassPage';
 import { SubjectPage } from './pages/SubjectPage';
 import { CoursePage } from './pages/CoursePage';
 import { LessonPage } from './pages/LessonPage';
+import { QuizPage } from './pages/QuizPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import './components/ui/Card.css';
 import './components/ui/ClassCard.css';
@@ -21,6 +22,7 @@ import './pages/ClassPage.css';
 import './pages/SubjectPage.css';
 import './pages/CoursePage.css';
 import './pages/LessonPage.css';
+import './pages/QuizPage.css';
 import './pages/NotFoundPage.css';
 
 function AppRoutes() {
@@ -52,6 +54,18 @@ function AppRoutes() {
         subjectSlug={route.subjectSlug}
         courseId={route.courseId}
         lessonId={route.lessonId}
+      />
+    );
+  }
+
+  if (route.name === 'quiz') {
+    return (
+      <QuizPage
+        classId={route.classId}
+        subjectSlug={route.subjectSlug}
+        courseId={route.courseId}
+        lessonId={route.lessonId}
+        quizId={route.quizId}
       />
     );
   }

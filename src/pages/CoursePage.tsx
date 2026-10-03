@@ -23,8 +23,8 @@ export type CoursePageProps = {
 const CLASSES_ANCHOR = `${HOME_ROUTE}#classes`;
 
 /**
- * Placeholder course page. It exists so every course card leads somewhere
- * useful; lesson and quiz lists are added in the next step of the
+ * Course page listing the lessons of one course in learning order. Each lesson
+ * ends with a short quiz, so this page completes the first half of the
  * Class → Subject → Course → Lesson → Quiz path.
  */
 export function CoursePage({ classId, subjectSlug, courseId }: CoursePageProps) {

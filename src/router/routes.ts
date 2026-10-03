@@ -25,12 +25,31 @@ export function lessonPath(
   return `${coursePath(classId, subjectSlug, courseId)}/lesson/${encodeURIComponent(lessonId)}`;
 }
 
+/** Path for a quiz page: /class/class1/subject/mathematics/course/numbers-and-counting/lesson/lesson-1/quiz/quiz-1 */
+export function quizPath(
+  classId: string,
+  subjectSlug: string,
+  courseId: string,
+  lessonId: string,
+  quizId: string,
+): string {
+  return `${lessonPath(classId, subjectSlug, courseId, lessonId)}/quiz/${encodeURIComponent(quizId)}`;
+}
+
 export type RouteMatch =
   | { name: 'home' }
   | { name: 'class'; classId: string }
   | { name: 'subject'; classId: string; subjectSlug: string }
   | { name: 'course'; classId: string; subjectSlug: string; courseId: string }
   | { name: 'lesson'; classId: string; subjectSlug: string; courseId: string; lessonId: string }
+  | {
+      name: 'quiz';
+      classId: string;
+      subjectSlug: string;
+      courseId: string;
+      lessonId: string;
+      quizId: string;
+    }
   | { name: 'notFound'; path: string };
 
 function safeDecode(segment: string): string {
@@ -87,6 +106,23 @@ export function matchRoute(pathname: string): RouteMatch {
       subjectSlug: segments[3],
       courseId: segments[5],
       lessonId: segments[7],
+    };
+  }
+
+  if (
+    segments.length === 10 &&
+    segments[2] === 'subject' &&
+    segments[4] === 'course' &&
+    segments[6] === 'lesson' &&
+    segments[8] === 'quiz'
+  ) {
+    return {
+      name: 'quiz',
+      classId: segments[1],
+      subjectSlug: segments[3],
+      courseId: segments[5],
+      lessonId: segments[7],
+      quizId: segments[9],
     };
   }
 
