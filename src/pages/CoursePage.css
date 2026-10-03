@@ -1,0 +1,118 @@
+.course-hero {
+  background: linear-gradient(135deg, #eff6ff 0%, #e0f2fe 100%);
+  padding: 2.5rem 0 3rem;
+  text-align: center;
+}
+
+.course-hero-eyebrow {
+  display: inline-block;
+  margin: 1rem 0 0.75rem 0;
+  padding: 0.2rem 0.75rem;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.course-hero-title {
+  margin: 0 0 0.5rem 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  letter-spacing: -0.025em;
+}
+
+.course-hero-summary {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 1rem;
+  color: #4b5563;
+  line-height: 1.75;
+}
+
+.course-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem auto 0;
+  padding: 0;
+}
+
+.course-meta-item {
+  min-width: 140px;
+  padding: 0.875rem 1.25rem;
+  background: #ffffff;
+  border: 1px solid #dbeafe;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.course-meta-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #6b7280;
+}
+
+.course-meta-value {
+  margin: 0.25rem 0 0 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #1e3a8a;
+}
+
+.course-coming-soon {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1.75rem;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  text-align: left;
+}
+
+.course-coming-soon-text {
+  margin: 0;
+  color: #4b5563;
+  line-height: 1.75;
+}
+
+.course-coming-soon-points {
+  margin: 1rem 0 1.5rem;
+  padding-left: 1.25rem;
+  color: #6b7280;
+  line-height: 1.75;
+}
+
+@media (max-width: 768px) {
+  .course-hero {
+    padding: 2rem 0 2.5rem;
+  }
+
+  .course-hero-title {
+    font-size: 1.875rem;
+  }
+
+  .course-hero-summary {
+    font-size: 0.9375rem;
+  }
+
+  .course-meta {
+    gap: 0.75rem;
+  }
+
+  .course-meta-item {
+    min-width: 130px;
+    padding: 0.75rem 1rem;
+  }
+
+  .course-coming-soon {
+    padding: 1.5rem 1.25rem;
+  }
+}

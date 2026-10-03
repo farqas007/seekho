@@ -3,15 +3,21 @@ import { useRouter } from './router/routerContext';
 import { matchRoute } from './router/routes';
 import { HomePage } from './pages/HomePage';
 import { ClassPage } from './pages/ClassPage';
+import { SubjectPage } from './pages/SubjectPage';
+import { CoursePage } from './pages/CoursePage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import './components/ui/Card.css';
 import './components/ui/ClassCard.css';
 import './components/ui/SubjectCard.css';
+import './components/ui/CourseCard.css';
+import './components/ui/CourseGrid.css';
 import './components/layout/Page.css';
 import './components/layout/Header.css';
 import './components/layout/Footer.css';
 import './pages/HomePage.css';
 import './pages/ClassPage.css';
+import './pages/SubjectPage.css';
+import './pages/CoursePage.css';
 import './pages/NotFoundPage.css';
 
 function AppRoutes() {
@@ -20,6 +26,20 @@ function AppRoutes() {
 
   if (route.name === 'class') {
     return <ClassPage classId={route.classId} />;
+  }
+
+  if (route.name === 'subject') {
+    return <SubjectPage classId={route.classId} subjectSlug={route.subjectSlug} />;
+  }
+
+  if (route.name === 'course') {
+    return (
+      <CoursePage
+        classId={route.classId}
+        subjectSlug={route.subjectSlug}
+        courseId={route.courseId}
+      />
+    );
   }
 
   if (route.name === 'notFound') {

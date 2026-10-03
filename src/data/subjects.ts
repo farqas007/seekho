@@ -1,4 +1,5 @@
 import type { Grade } from './classes';
+import { getCourseCountForSubject } from './courses';
 
 export type SubjectSlug =
   | 'mathematics'
@@ -220,30 +221,13 @@ export const gradeSubjects: Record<Grade['id'], readonly GradeSubject[]> = {
       slug: 'mathematics',
       description: 'Full syllabus coverage with exam-focused practice and revision.',
     },
-    { slug: 'english', description: 'Textiles, writing skills and board exam preparation.' },
+    { slug: 'english', description: 'Texts, writing skills and board exam preparation.' },
     { slug: 'science', description: 'Complete physics, chemistry and biology with practicals.' },
     { slug: 'social-studies', description: 'History, geography, civics and map-based questions.' },
     { slug: 'computer', name: 'Computer Science', description: 'Coding, databases and computer science fundamentals.' },
     { slug: 'arts', description: 'Creative projects that build confidence and originality.' },
     { slug: 'value-education', description: 'Life skills, ethics and balanced choices.' },
   ],
-};
-
-/**
- * Placeholder course counts. Courses are the next step in the
- * Class → Subject → Course → Lesson → Quiz hierarchy, so this is where real
- * course lists will be counted from later.
- */
-const placeholderCourseCounts: Record<SubjectSlug, number> = {
-  mathematics: 0,
-  english: 0,
-  science: 0,
-  'social-studies': 0,
-  computer: 0,
-  arts: 0,
-  'value-education': 0,
-  health: 0,
-  phonics: 0,
 };
 
 export type Subject = {
@@ -255,7 +239,7 @@ export type Subject = {
   description: string;
   area: SubjectArea;
   icon: SubjectIconName;
-  /** Number of courses planned for this subject. Zero until courses exist. */
+  /** Number of courses listed for this subject in this class. */
   courseCount: number;
 };
 
@@ -278,17 +262,18 @@ function toSubject(gradeId: Grade['id'], entry: GradeSubject): Subject {
     description: entry.description ?? template.description,
     area: template.area,
     icon: template.icon,
-    courseCount: placeholderCourseCounts[entry.slug],
+    courseCount: getCourseCountForSubject(gradeId, entry.slug),
   };
 }
 
-/** All subjects for a grade, in display order. */
+/** Subjects of a known grade, in display order. Empty for an unknown grade. */
 export function getSubjectsForGrade(gradeId: Grade['id']): Subject[] {
-  return gradeSubjects[gradeId].map((entry) => toSubject(gradeId, entry));
+  const entries = gradeSubjects[gradeId] ?? [];
+  return entries.map((entry) => toSubject(gradeId, entry));
 }
 
-/** Finds one subject inside a grade. Used by the upcoming subject page. */
+/** Finds one subject inside a grade. Used by the subject page and course page. */
 export function getSubjectBySlug(gradeId: Grade['id'], slug: string): Subject | undefined {
-  const entry = gradeSubjects[gradeId].find((item) => item.slug === slug);
+  const entry = (gradeSubjects[gradeId] ?? []).find((item) => item.slug === slug);
   return entry ? toSubject(gradeId, entry) : undefined;
 }

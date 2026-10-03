@@ -1,0 +1,107 @@
+.course-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  height: 100%;
+}
+
+.course-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.25rem;
+}
+
+.course-card-stage {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #1d4ed8;
+  background: #eff6ff;
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
+}
+
+.course-card-status {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #6b7280;
+  background: #f3f4f6;
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
+}
+
+.course-card-available .course-card-status {
+  color: #166534;
+  background: #dcfce7;
+}
+
+.course-card-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+}
+
+.course-card-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.course-card-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+}
+
+.course-card-link:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+.course-card:focus-within {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
+}
+
+.course-card-desc {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.course-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin: 0.5rem 0 0;
+  padding: 0.75rem 0 0;
+  border-top: 1px solid #f3f4f6;
+}
+
+.course-card-meta-item {
+  margin: 0;
+}
+
+.course-card-meta-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #9ca3af;
+}
+
+.course-card-meta-value {
+  margin: 0.15rem 0 0 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+}

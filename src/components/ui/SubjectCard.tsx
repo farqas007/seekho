@@ -8,9 +8,9 @@ import './SubjectCard.css';
 export type SubjectCardProps = {
   subject: Subject;
   /**
-   * Route of the subject page. Left out until the
-   * Class → Subject → Course → Lesson → Quiz hierarchy continues, at which point
-   * this card already renders the correct link.
+   * Route of the subject page. The class page passes
+   * `subjectPath(gradeId, subject.slug)`; leaving it out renders the name as
+   * plain text, which is handy for previews.
    */
   href?: string;
 };

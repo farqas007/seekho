@@ -4,8 +4,8 @@ Seekho is a free learning platform built to make quality education easy to
 access. Students start by picking their class, then move through subjects to
 reach courses, lessons and quizzes.
 
-Current status: **Home → Class → Subject**. Subject pages, courses, lessons and
-quizzes come next.
+Current status: **Home → Class → Subject → Course**. Course pages are
+placeholder "coming soon" pages; lessons and quizzes come next.
 
 ## Features
 
@@ -14,9 +14,15 @@ quizzes come next.
 - Class selection for all 13 grades: Nursery, KG 1, KG 2 and Class 1 to Class 10.
 - A dedicated class page per grade, reachable at `/class/<grade-id>`, showing
   the class name, a short description and its subject cards.
+- A dedicated subject page per subject, reachable at
+  `/class/<grade-id>/subject/<subject-slug>`, with breadcrumbs, back
+  navigation and a list of that subject's courses.
+- Course cards that link to `/class/<grade-id>/subject/<subject-slug>/course/<course-id>`
+  (the course page is a coming-soon placeholder until lesson content is added).
 - Subject cards that are already structured for
   Class → Subject → Course → Lesson → Quiz.
-- Clear "Back to Classes" navigation plus breadcrumbs on every class page.
+- Clear "Back to Classes" and subject-level back navigation plus breadcrumbs
+  on the class, subject and course pages.
 - Responsive layout for mobile, tablet and desktop, with semantic HTML,
   keyboard-friendly links and focus management on navigation.
 - All content is original placeholder text, ready to be replaced by real
@@ -46,14 +52,15 @@ npm run lint     # run oxlint
 src/
   components/
     layout/    Header, Footer, Breadcrumbs and shared page layout CSS
-    ui/        Card, ClassCard, SubjectCard, SubjectIcon, BackLink
+    ui/        Card, ClassCard, SubjectCard, CourseCard, CourseGrid, SubjectIcon, BackLink
   data/
     classes.ts   Grade data for the 13 classes
     subjects.ts  Subject templates and the subject list for each grade
+    courses.ts   Course templates, course lists per class/subject and lookup helpers
   hooks/
     usePageTitle.ts
   pages/
-    HomePage, ClassPage, NotFoundPage
+    HomePage, ClassPage, SubjectPage, CoursePage, NotFoundPage
   router/
     Router.tsx        History API provider
     Link.tsx          Anchor that navigates without a reload
@@ -77,6 +84,8 @@ Routes:
 | --- | --- |
 | `/` | `HomePage` |
 | `/class/<grade-id>` | `ClassPage` (for example `/class/class1`) |
+| `/class/<grade-id>/subject/<subject-slug>` | `SubjectPage` (for example `/class/class1/subject/mathematics`) |
+| `/class/<grade-id>/subject/<subject-slug>/course/<course-id>` | `CoursePage` (coming soon) |
 | anything else | `NotFoundPage` |
 
 Hash links such as `/#classes` are supported, so the header navigation keeps
