@@ -75,6 +75,15 @@ export const courseTemplates: Record<SubjectSlug, readonly CourseTemplate[]> = {
       status: 'coming-soon',
     },
     {
+      id: 'addition-made-easy',
+      stage: 'Building skills',
+      title: 'Addition Made Easy',
+      description: 'Putting groups together with simple sums, pictures and short stories.',
+      level: 'Beginner',
+      lessonCount: 7,
+      status: 'available',
+    },
+    {
       id: 'shapes-and-patterns',
       stage: 'Building skills',
       title: 'Shapes and Patterns',

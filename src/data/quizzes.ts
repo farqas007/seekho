@@ -45,9 +45,9 @@ export interface QuizScore {
   percentage: number;
 }
 
-// Small initial dataset - intentionally limited.
-// Only lesson-1 of the Numbers Made Simple course (numbers-and-counting) has a
-// quiz, so the demo stays tiny while the shape is ready for real content.
+// Quiz data, one quiz per written lesson. Numbers Made Simple
+// (numbers-and-counting) keeps its original quizzes, and Addition Made Easy
+// (addition-made-easy) has a quiz for each of its seven lessons.
 const quizzesData: Quiz[] = [
   {
     quizId: 'quiz-1',
@@ -403,6 +403,475 @@ const quizzesData: Quiz[] = [
           { optionId: 'd', text: '5' },
         ],
         correctOptionId: 'b',
+      },
+    ],
+  },
+  {
+    quizId: 'addition-quiz-1',
+    lessonId: 'addition-lesson-1',
+    courseId: 'addition-made-easy',
+    classId: 'class1',
+    subjectSlug: 'mathematics',
+    title: 'Introduction to Addition - Quiz',
+    description: 'Five short questions about joining two groups together.',
+    estimatedMinutes: 5,
+    questions: [
+      {
+        questionId: 'q1',
+        prompt: 'Which word tells us to join two groups into one bigger group?',
+        options: [
+          { optionId: 'a', text: 'Taking away' },
+          { optionId: 'b', text: 'Adding' },
+          { optionId: 'c', text: 'Comparing' },
+          { optionId: 'd', text: 'Sharing out' },
+        ],
+        correctOptionId: 'b',
+      },
+      {
+        questionId: 'q2',
+        prompt: 'You have 2 balloons and someone brings 3 more. How many balloons are there now?',
+        options: [
+          { optionId: 'a', text: '4' },
+          { optionId: 'b', text: '5' },
+          { optionId: 'c', text: '6' },
+          { optionId: 'd', text: '3' },
+        ],
+        correctOptionId: 'b',
+      },
+      {
+        questionId: 'q3',
+        prompt: 'Three birds sit on a branch and two birds fly over to them. How many birds are on the branch?',
+        options: [
+          { optionId: 'a', text: '5' },
+          { optionId: 'b', text: '4' },
+          { optionId: 'c', text: '6' },
+          { optionId: 'd', text: '2' },
+        ],
+        correctOptionId: 'a',
+      },
+      {
+        questionId: 'q4',
+        prompt: 'What do we call the answer we get when we add?',
+        options: [
+          { optionId: 'a', text: 'A total' },
+          { optionId: 'b', text: 'A group' },
+          { optionId: 'c', text: 'A drawing' },
+          { optionId: 'd', text: 'A number before' },
+        ],
+        correctOptionId: 'a',
+      },
+      {
+        questionId: 'q5',
+        prompt: 'Which word do we say between two numbers when we add them?',
+        options: [
+          { optionId: 'a', text: 'Minus' },
+          { optionId: 'b', text: 'Plus' },
+          { optionId: 'c', text: 'After' },
+          { optionId: 'd', text: 'Smallest' },
+        ],
+        correctOptionId: 'b',
+      },
+    ],
+  },
+  {
+    quizId: 'addition-quiz-2',
+    lessonId: 'addition-lesson-2',
+    courseId: 'addition-made-easy',
+    classId: 'class1',
+    subjectSlug: 'mathematics',
+    title: 'Adding One More - Quiz',
+    description: 'Five short questions about counting up by one.',
+    estimatedMinutes: 5,
+    questions: [
+      {
+        questionId: 'q1',
+        prompt: 'What is 6 plus one more?',
+        options: [
+          { optionId: 'a', text: '5' },
+          { optionId: 'b', text: '7' },
+          { optionId: 'c', text: '8' },
+          { optionId: 'd', text: '6' },
+        ],
+        correctOptionId: 'b',
+      },
+      {
+        questionId: 'q2',
+        prompt: 'Which number is one more than 9?',
+        options: [
+          { optionId: 'a', text: '8' },
+          { optionId: 'b', text: '10' },
+          { optionId: 'c', text: '11' },
+          { optionId: 'd', text: '7' },
+        ],
+        correctOptionId: 'b',
+      },
+      {
+        questionId: 'q3',
+        prompt: 'You have 3 crayons and your friend gives you one more. How many crayons do you have?',
+        options: [
+          { optionId: 'a', text: '2' },
+          { optionId: 'b', text: '3' },
+          { optionId: 'c', text: '4' },
+          { optionId: 'd', text: '5' },
+        ],
+        correctOptionId: 'c',
+      },
+      {
+        questionId: 'q4',
+        prompt: 'You count on from 7 to add one more. Which number do you land on?',
+        options: [
+          { optionId: 'a', text: '6' },
+          { optionId: 'b', text: '8' },
+          { optionId: 'c', text: '9' },
+          { optionId: 'd', text: '10' },
+        ],
+        correctOptionId: 'b',
+      },
+      {
+        questionId: 'q5',
+        prompt: 'Which number is one more than 0?',
+        options: [
+          { optionId: 'a', text: '1' },
+          { optionId: 'b', text: '2' },
+          { optionId: 'c', text: '3' },
+          { optionId: 'd', text: '0' },
+        ],
+        correctOptionId: 'a',
+      },
+    ],
+  },
+  {
+    quizId: 'addition-quiz-3',
+    lessonId: 'addition-lesson-3',
+    courseId: 'addition-made-easy',
+    classId: 'class1',
+    subjectSlug: 'mathematics',
+    title: 'Adding Within 5 - Quiz',
+    description: 'Five short questions about adding two small numbers.',
+    estimatedMinutes: 5,
+    questions: [
+      {
+        questionId: 'q1',
+        prompt: 'What is 2 plus 3?',
+        options: [
+          { optionId: 'a', text: '4' },
+          { optionId: 'b', text: '5' },
+          { optionId: 'c', text: '6' },
+          { optionId: 'd', text: '3' },
+        ],
+        correctOptionId: 'b',
+      },
+      {
+        questionId: 'q2',
+        prompt: 'What is 4 plus 1?',
+        options: [
+          { optionId: 'a', text: '3' },
+          { optionId: 'b', text: '4' },
+          { optionId: 'c', text: '5' },
+          { optionId: 'd', text: '6' },
+        ],
+        correctOptionId: 'c',
+      },
+      {
+        questionId: 'q3',
+        prompt: 'Which sum has a total of 5 or less?',
+        options: [
+          { optionId: 'a', text: '3 plus 2' },
+          { optionId: 'b', text: '2 plus 4' },
+          { optionId: 'c', text: '4 plus 4' },
+          { optionId: 'd', text: '3 plus 3' },
+        ],
+        correctOptionId: 'a',
+      },
+      {
+        questionId: 'q4',
+        prompt: 'A plate holds 3 cookies and we add one more cookie. How many cookies are there?',
+        options: [
+          { optionId: 'a', text: '3' },
+          { optionId: 'b', text: '4' },
+          { optionId: 'c', text: '5' },
+          { optionId: 'd', text: '2' },
+        ],
+        correctOptionId: 'b',
+      },
+      {
+        questionId: 'q5',
+        prompt: 'You start at 1 and count on three times. Which number do you reach?',
+        options: [
+          { optionId: 'a', text: '3' },
+          { optionId: 'b', text: '4' },
+          { optionId: 'c', text: '5' },
+          { optionId: 'd', text: '2' },
+        ],
+        correctOptionId: 'b',
+      },
+    ],
+  },
+  {
+    quizId: 'addition-quiz-4',
+    lessonId: 'addition-lesson-4',
+    courseId: 'addition-made-easy',
+    classId: 'class1',
+    subjectSlug: 'mathematics',
+    title: 'Adding Within 10 - Quiz',
+    description: 'Five short questions about totals up to ten.',
+    estimatedMinutes: 5,
+    questions: [
+      {
+        questionId: 'q1',
+        prompt: 'What is 6 plus 3?',
+        options: [
+          { optionId: 'a', text: '8' },
+          { optionId: 'b', text: '9' },
+          { optionId: 'c', text: '10' },
+          { optionId: 'd', text: '7' },
+        ],
+        correctOptionId: 'b',
+      },
+      {
+        questionId: 'q2',
+        prompt: 'What is 5 plus 5?',
+        options: [
+          { optionId: 'a', text: '9' },
+          { optionId: 'b', text: '10' },
+          { optionId: 'c', text: '11' },
+          { optionId: 'd', text: '8' },
+        ],
+        correctOptionId: 'b',
+      },
+      {
+        questionId: 'q3',
+        prompt: 'Which sum has a total of exactly ten?',
+        options: [
+          { optionId: 'a', text: '4 plus 5' },
+          { optionId: 'b', text: '6 plus 4' },
+          { optionId: 'c', text: '8 plus 1' },
+          { optionId: 'd', text: '3 plus 3' },
+        ],
+        correctOptionId: 'b',
+      },
+      {
+        questionId: 'q4',
+        prompt: 'There are 7 plates on a table and 2 more arrive. How many plates are there now?',
+        options: [
+          { optionId: 'a', text: '5' },
+          { optionId: 'b', text: '8' },
+          { optionId: 'c', text: '9' },
+          { optionId: 'd', text: '10' },
+        ],
+        correctOptionId: 'c',
+      },
+      {
+        questionId: 'q5',
+        prompt: 'You start counting on from 8 to add 2 more. How many counting steps do you take?',
+        options: [
+          { optionId: 'a', text: '1' },
+          { optionId: 'b', text: '2' },
+          { optionId: 'c', text: '8' },
+          { optionId: 'd', text: '10' },
+        ],
+        correctOptionId: 'b',
+      },
+    ],
+  },
+  {
+    quizId: 'addition-quiz-5',
+    lessonId: 'addition-lesson-5',
+    courseId: 'addition-made-easy',
+    classId: 'class1',
+    subjectSlug: 'mathematics',
+    title: 'Adding Using Pictures - Quiz',
+    description: 'Five short questions about drawing and counting shapes.',
+    estimatedMinutes: 5,
+    questions: [
+      {
+        questionId: 'q1',
+        prompt: 'You draw 3 stars and then 2 more stars. How many stars do you draw altogether?',
+        options: [
+          { optionId: 'a', text: '4' },
+          { optionId: 'b', text: '5' },
+          { optionId: 'c', text: '6' },
+          { optionId: 'd', text: '3' },
+        ],
+        correctOptionId: 'b',
+      },
+      {
+        questionId: 'q2',
+        prompt: 'You draw 4 circles and 4 more circles. What is the total?',
+        options: [
+          { optionId: 'a', text: '6' },
+          { optionId: 'b', text: '7' },
+          { optionId: 'c', text: '8' },
+          { optionId: 'd', text: '9' },
+        ],
+        correctOptionId: 'c',
+      },
+      {
+        questionId: 'q3',
+        prompt: 'What do we do first when we use pictures to add?',
+        options: [
+          { optionId: 'a', text: 'Count backwards' },
+          { optionId: 'b', text: 'Draw the two groups' },
+          { optionId: 'c', text: 'Write the answer' },
+          { optionId: 'd', text: 'Guess quickly' },
+        ],
+        correctOptionId: 'b',
+      },
+      {
+        questionId: 'q4',
+        prompt: 'Six triangles and three more triangles make how many triangles?',
+        options: [
+          { optionId: 'a', text: '7' },
+          { optionId: 'b', text: '8' },
+          { optionId: 'c', text: '9' },
+          { optionId: 'd', text: '10' },
+        ],
+        correctOptionId: 'c',
+      },
+      {
+        questionId: 'q5',
+        prompt: 'Why do pictures help us to add?',
+        options: [
+          { optionId: 'a', text: 'They look pretty' },
+          { optionId: 'b', text: 'We can count the shapes' },
+          { optionId: 'c', text: 'They take less space' },
+          { optionId: 'd', text: 'They hide the numbers' },
+        ],
+        correctOptionId: 'b',
+      },
+    ],
+  },
+  {
+    quizId: 'addition-quiz-6',
+    lessonId: 'addition-lesson-6',
+    courseId: 'addition-made-easy',
+    classId: 'class1',
+    subjectSlug: 'mathematics',
+    title: 'Simple Addition Stories - Quiz',
+    description: 'Five short questions about finding sums inside stories.',
+    estimatedMinutes: 5,
+    questions: [
+      {
+        questionId: 'q1',
+        prompt: 'Meera has 4 pens and her mother gives her 3 more. How many pens does she have?',
+        options: [
+          { optionId: 'a', text: '6' },
+          { optionId: 'b', text: '7' },
+          { optionId: 'c', text: '8' },
+          { optionId: 'd', text: '5' },
+        ],
+        correctOptionId: 'b',
+      },
+      {
+        questionId: 'q2',
+        prompt: 'Five birds flew to a tree and two more came. How many birds are on the tree?',
+        options: [
+          { optionId: 'a', text: '5' },
+          { optionId: 'b', text: '6' },
+          { optionId: 'c', text: '7' },
+          { optionId: 'd', text: '8' },
+        ],
+        correctOptionId: 'c',
+      },
+      {
+        questionId: 'q3',
+        prompt: 'In an addition story, what do we look for first?',
+        options: [
+          { optionId: 'a', text: 'The names of the people' },
+          { optionId: 'b', text: 'The two groups to add' },
+          { optionId: 'c', text: 'The colours' },
+          { optionId: 'd', text: 'The answer' },
+        ],
+        correctOptionId: 'b',
+      },
+      {
+        questionId: 'q4',
+        prompt: 'Asha had 6 sweets and a shop gave her 2 more. How many sweets does she have?',
+        options: [
+          { optionId: 'a', text: '4' },
+          { optionId: 'b', text: '7' },
+          { optionId: 'c', text: '8' },
+          { optionId: 'd', text: '9' },
+        ],
+        correctOptionId: 'c',
+      },
+      {
+        questionId: 'q5',
+        prompt: 'Which sum matches the story "three apples and four apples"?',
+        options: [
+          { optionId: 'a', text: '3 plus 4' },
+          { optionId: 'b', text: '4 minus 3' },
+          { optionId: 'c', text: '7 plus 1' },
+          { optionId: 'd', text: '1 plus 3' },
+        ],
+        correctOptionId: 'a',
+      },
+    ],
+  },
+  {
+    quizId: 'addition-quiz-7',
+    lessonId: 'addition-lesson-7',
+    courseId: 'addition-made-easy',
+    classId: 'class1',
+    subjectSlug: 'mathematics',
+    title: 'Addition Practice - Quiz',
+    description: 'Five short questions that mix all our addition skills.',
+    estimatedMinutes: 5,
+    questions: [
+      {
+        questionId: 'q1',
+        prompt: 'What is 5 plus 4?',
+        options: [
+          { optionId: 'a', text: '8' },
+          { optionId: 'b', text: '9' },
+          { optionId: 'c', text: '10' },
+          { optionId: 'd', text: '7' },
+        ],
+        correctOptionId: 'b',
+      },
+      {
+        questionId: 'q2',
+        prompt: 'What is 7 plus 2?',
+        options: [
+          { optionId: 'a', text: '8' },
+          { optionId: 'b', text: '9' },
+          { optionId: 'c', text: '10' },
+          { optionId: 'd', text: '11' },
+        ],
+        correctOptionId: 'b',
+      },
+      {
+        questionId: 'q3',
+        prompt: 'Which sum has a total of 8?',
+        options: [
+          { optionId: 'a', text: '3 plus 3' },
+          { optionId: 'b', text: '5 plus 3' },
+          { optionId: 'c', text: '4 plus 2' },
+          { optionId: 'd', text: '6 plus 1' },
+        ],
+        correctOptionId: 'b',
+      },
+      {
+        questionId: 'q4',
+        prompt: 'Ravi counts on from 6 to add 3 more. Which numbers does he say?',
+        options: [
+          { optionId: 'a', text: '6, 7, 8, 9' },
+          { optionId: 'b', text: '6, 8, 9' },
+          { optionId: 'c', text: '3, 6, 9' },
+          { optionId: 'd', text: '9, 8, 7' },
+        ],
+        correctOptionId: 'a',
+      },
+      {
+        questionId: 'q5',
+        prompt: 'After finding an answer, what is a good way to check it?',
+        options: [
+          { optionId: 'a', text: 'Count the same set again' },
+          { optionId: 'b', text: 'Guess a bigger number' },
+          { optionId: 'c', text: 'Skip the question' },
+          { optionId: 'd', text: 'Change the question' },
+        ],
+        correctOptionId: 'a',
       },
     ],
   },

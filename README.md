@@ -83,9 +83,26 @@ src/
   App.tsx             Router + route to page mapping
   main.tsx
 tests/
-  routes.test.ts      Route matching and path building
-  quizzes.test.ts     Quiz lookup, question data and score calculation
+  routes.test.ts          Route matching and path building
+  quizzes.test.ts         Quiz lookup, question data and score calculation
+  numbersCourse.test.ts   Numbers Made Simple course, lessons and quizzes
+  additionCourse.test.ts  Addition Made Easy course, lessons and quizzes
+  quizPage.test.tsx       Quiz and lesson page rendering
 ```
+
+## Course content so far
+
+Two Class 1 Mathematics courses are fully written, each with seven lessons and a
+quiz after every lesson:
+
+| Course | Course id | Lessons |
+| --- | --- | --- |
+| Numbers Made Simple | `numbers-and-counting` | 7 |
+| Addition Made Easy | `addition-made-easy` | 7 |
+
+`addition-made-easy` runs from introducing addition up to mixed practice, so it
+sits directly after `numbers-and-counting` in the mathematics course list:
+`/class/class1/subject/mathematics/course/addition-made-easy`.
 
 ## Routing
 
@@ -108,7 +125,9 @@ Routes:
 | anything else | `NotFoundPage` |
 
 The demo quiz URL is
-`/class/class1/subject/mathematics/course/numbers-and-counting/lesson/lesson-1/quiz/quiz-1`.
+`/class/class1/subject/mathematics/course/numbers-and-counting/lesson/lesson-1/quiz/quiz-1`,
+and the next course starts at
+`/class/class1/subject/mathematics/course/addition-made-easy`.
 
 Each path has a matching builder in `src/router/routes.ts` (`classPath`,
 `subjectPath`, `coursePath`, `lessonPath`, `quizPath`), so pages and tests build

@@ -33,8 +33,10 @@ export interface Lesson {
   };
 }
 
-// Small initial dataset - intentionally limited
-// Only the Numbers Made Simple course (numbers-and-counting) has a couple of lessons for demonstration
+// Lessons are plain data: one entry per lesson, matched by class, subject and
+// course id. Two Class 1 Mathematics courses are written so far -
+// Numbers Made Simple (numbers-and-counting) and Addition Made Easy
+// (addition-made-easy). Every lesson keeps the same six content blocks.
 const lessonsData: Lesson[] = [
   {
     lessonId: 'lesson-1',
@@ -334,6 +336,405 @@ const lessonsData: Lesson[] = [
         type: 'recap',
         title: 'Recap',
         content: ['We can use all our number skills to practice counting, comparing and ordering numbers.'],
+      },
+    },
+  },
+  {
+    lessonId: 'addition-lesson-1',
+    courseId: 'addition-made-easy',
+    classId: 'class1',
+    subjectSlug: 'mathematics',
+    order: 1,
+    title: 'Introduction to Addition',
+    summary: 'Learn that addition joins two groups of objects into one bigger group.',
+    estimatedMinutes: 15,
+    status: 'available',
+    content: {
+      intro: {
+        type: 'intro',
+        title: 'Introduction',
+        content: [
+          'You already know how to count a group of things. Now let us learn what to do when two groups meet.',
+        ],
+      },
+      keyPoints: {
+        type: 'keyPoints',
+        title: 'Key Points',
+        list: [
+          'Addition joins two groups into one bigger group',
+          'We say plus when we add',
+          'The answer we get is called the total',
+        ],
+      },
+      explanation: {
+        type: 'explanation',
+        title: 'Explanation',
+        content: [
+          'When we put two groups of things together, we are adding. We say the number in the first group, then plus, then the number in the second group. The answer we find is the total.',
+        ],
+      },
+      example: {
+        type: 'example',
+        title: 'Example',
+        content: [
+          'Three birds sit on a branch and two birds fly over to join them. We say three plus two. Counting all the birds together gives a total of five.',
+        ],
+      },
+      practice: {
+        type: 'practice',
+        title: 'Practice',
+        content: [
+          'Find two small groups of things at home, such as spoons or socks. Count each group, then say the two numbers together as one addition.',
+        ],
+      },
+      recap: {
+        type: 'recap',
+        title: 'Recap',
+        content: [
+          'Adding joins two groups. We say the numbers, say plus, and the answer we find is the total.',
+        ],
+      },
+    },
+  },
+  {
+    lessonId: 'addition-lesson-2',
+    courseId: 'addition-made-easy',
+    classId: 'class1',
+    subjectSlug: 'mathematics',
+    order: 2,
+    title: 'Adding One More',
+    summary: 'Add one more object by counting up by one from a number you know.',
+    estimatedMinutes: 10,
+    status: 'available',
+    content: {
+      intro: {
+        type: 'intro',
+        title: 'Introduction',
+        content: [
+          'The easiest sum to learn is adding one more. Let us make that first step a habit.',
+        ],
+      },
+      keyPoints: {
+        type: 'keyPoints',
+        title: 'Key Points',
+        list: [
+          'Adding one more means counting up by one',
+          'The new number is one bigger than the old one',
+          'Counting on from a number we know is the easiest way',
+        ],
+      },
+      explanation: {
+        type: 'explanation',
+        title: 'Explanation',
+        content: [
+          'When we add one more, we do not start counting from zero again. We say the number we have and count on by one. The number we land on is the answer.',
+        ],
+      },
+      example: {
+        type: 'example',
+        title: 'Example',
+        content: [
+          'You have four pencils in your hand and your friend lends you one more. Count on from four: four, five. So four plus one is five.',
+        ],
+      },
+      practice: {
+        type: 'practice',
+        title: 'Practice',
+        content: [
+          'Say a number between one and eight, then add one more out loud. Do this ten times and watch the numbers march forward.',
+        ],
+      },
+      recap: {
+        type: 'recap',
+        title: 'Recap',
+        content: [
+          'Adding one more is counting on by one. The number we land on is one bigger than the number we started with.',
+        ],
+      },
+    },
+  },
+  {
+    lessonId: 'addition-lesson-3',
+    courseId: 'addition-made-easy',
+    classId: 'class1',
+    subjectSlug: 'mathematics',
+    order: 3,
+    title: 'Adding Within 5',
+    summary: 'Add two small numbers together and find totals up to five.',
+    estimatedMinutes: 15,
+    status: 'available',
+    content: {
+      intro: {
+        type: 'intro',
+        title: 'Introduction',
+        content: [
+          'Small numbers are friendly. If we can join two numbers up to five, we have a strong start.',
+        ],
+      },
+      keyPoints: {
+        type: 'keyPoints',
+        title: 'Key Points',
+        list: [
+          'Two small numbers can be joined very quickly',
+          'Every number we use in this lesson stays at five or below',
+          'Saying each number slowly keeps us from skipping a step',
+        ],
+      },
+      explanation: {
+        type: 'explanation',
+        title: 'Explanation',
+        content: [
+          'When the numbers are small, we can hold them in our head. We say the first number, say plus, say the second number, and then count on from the first number to reach the total.',
+        ],
+      },
+      example: {
+        type: 'example',
+        title: 'Example',
+        content: [
+          'A tree has two leaves and we draw two more. Start at two and count on twice: two, three, four. The total is four leaves.',
+        ],
+      },
+      practice: {
+        type: 'practice',
+        title: 'Practice',
+        content: [
+          'Draw two small groups of dots, using numbers up to five. Add the two numbers and write the total next to your drawing.',
+        ],
+      },
+      recap: {
+        type: 'recap',
+        title: 'Recap',
+        content: [
+          'Adding numbers up to five is quick. Say both numbers, then count on from the first to find the total.',
+        ],
+      },
+    },
+  },
+  {
+    lessonId: 'addition-lesson-4',
+    courseId: 'addition-made-easy',
+    classId: 'class1',
+    subjectSlug: 'mathematics',
+    order: 4,
+    title: 'Adding Within 10',
+    summary: 'Find totals up to ten and learn which number to start counting from.',
+    estimatedMinutes: 15,
+    status: 'available',
+    content: {
+      intro: {
+        type: 'intro',
+        title: 'Introduction',
+        content: [
+          'Now the numbers grow a little. Ten is a friendly stopping point for Class 1 addition.',
+        ],
+      },
+      keyPoints: {
+        type: 'keyPoints',
+        title: 'Key Points',
+        list: [
+          'A total up to ten is still easy to find',
+          'Starting from the bigger number saves counting steps',
+          'Counting on means starting at a number and moving forward',
+        ],
+      },
+      explanation: {
+        type: 'explanation',
+        title: 'Explanation',
+        content: [
+          'Counting on from the smaller number works, but it takes more steps. If we start at the bigger number and count on only as many steps as the smaller number, we arrive at the total with less counting.',
+        ],
+      },
+      example: {
+        type: 'example',
+        title: 'Example',
+        content: [
+          'There are six balloons tied up and three more arrive. Count on from six: six, seven, eight, nine. The total is nine balloons.',
+        ],
+      },
+      practice: {
+        type: 'practice',
+        title: 'Practice',
+        content: [
+          'Roll a dice twice and add the two numbers. Say your sum out loud, then count on from the bigger number to check your answer.',
+        ],
+      },
+      recap: {
+        type: 'recap',
+        title: 'Recap',
+        content: [
+          'To add within ten, count on from one of the numbers. Starting at the bigger number gives fewer steps to the total.',
+        ],
+      },
+    },
+  },
+  {
+    lessonId: 'addition-lesson-5',
+    courseId: 'addition-made-easy',
+    classId: 'class1',
+    subjectSlug: 'mathematics',
+    order: 5,
+    title: 'Adding Using Pictures',
+    summary: 'Draw the two groups and count every shape to see the total.',
+    estimatedMinutes: 15,
+    status: 'available',
+    content: {
+      intro: {
+        type: 'intro',
+        title: 'Introduction',
+        content: [
+          'Some sums are easier to see than to say. A quick drawing can show the answer straight away.',
+        ],
+      },
+      keyPoints: {
+        type: 'keyPoints',
+        title: 'Key Points',
+        list: [
+          'One shape stands for one object',
+          'Draw the two groups side by side',
+          'Touch every shape as you count the total',
+        ],
+      },
+      explanation: {
+        type: 'explanation',
+        title: 'Explanation',
+        content: [
+          'When a sum feels confusing, draw it. Draw a shape for each object in the first group, leave a small space, then draw the second group. Counting every shape together gives the total.',
+        ],
+      },
+      example: {
+        type: 'example',
+        title: 'Example',
+        content: [
+          'To add four and three, draw four stars in a row and then three more stars. Count all the stars from one to seven. The total is seven.',
+        ],
+      },
+      practice: {
+        type: 'practice',
+        title: 'Practice',
+        content: [
+          'Choose three sums and draw pictures for them. Count the pictures carefully to find each total, then check with counting on.',
+        ],
+      },
+      recap: {
+        type: 'recap',
+        title: 'Recap',
+        content: [
+          'Pictures show addition clearly. Draw one shape per object and count the shapes to find the total.',
+        ],
+      },
+    },
+  },
+  {
+    lessonId: 'addition-lesson-6',
+    courseId: 'addition-made-easy',
+    classId: 'class1',
+    subjectSlug: 'mathematics',
+    order: 6,
+    title: 'Simple Addition Stories',
+    summary: 'Read a short story, find the two groups and add them together.',
+    estimatedMinutes: 15,
+    status: 'available',
+    content: {
+      intro: {
+        type: 'intro',
+        title: 'Introduction',
+        content: [
+          'Numbers in stories are fun because something is happening. Let us turn those stories into sums.',
+        ],
+      },
+      keyPoints: {
+        type: 'keyPoints',
+        title: 'Key Points',
+        list: [
+          'A story about joining is really an addition sum',
+          'Look for the two groups in the story',
+          'Say the sum, then give the answer',
+        ],
+      },
+      explanation: {
+        type: 'explanation',
+        title: 'Explanation',
+        content: [
+          'Many short word problems are addition dressed up. We read the story twice, find out how many things there are to start with and how many are added, and then add those two numbers.',
+        ],
+      },
+      example: {
+        type: 'example',
+        title: 'Example',
+        content: [
+          'Ravi has three marbles in his pocket. His friend gives him two more marbles. Three plus two is five, so Ravi has five marbles.',
+        ],
+      },
+      practice: {
+        type: 'practice',
+        title: 'Practice',
+        content: [
+          'Make up a short story using your own toys or snacks. Write the two groups in your story and add them.',
+        ],
+      },
+      recap: {
+        type: 'recap',
+        title: 'Recap',
+        content: [
+          'A story that joins two groups is an addition sum. Find the two groups, add them, and share the total.',
+        ],
+      },
+    },
+  },
+  {
+    lessonId: 'addition-lesson-7',
+    courseId: 'addition-made-easy',
+    classId: 'class1',
+    subjectSlug: 'mathematics',
+    order: 7,
+    title: 'Addition Practice',
+    summary: 'Put all the addition skills together with mixed sums and a checking habit.',
+    estimatedMinutes: 15,
+    status: 'available',
+    content: {
+      intro: {
+        type: 'intro',
+        title: 'Introduction',
+        content: [
+          'We have learnt one step at a time. Let us now mix the steps and grow more confident.',
+        ],
+      },
+      keyPoints: {
+        type: 'keyPoints',
+        title: 'Key Points',
+        list: [
+          'Count on from the first number to find the total',
+          'Pictures, counting on and stories all check each other',
+          'Counting again is how we check our answer',
+        ],
+      },
+      explanation: {
+        type: 'explanation',
+        title: 'Explanation',
+        content: [
+          'Good mathematicians check their work. We read a sum, count on to find the total, and then count the same set once more in a different way to be sure the answer is right.',
+        ],
+      },
+      example: {
+        type: 'example',
+        title: 'Example',
+        content: [
+          'Five plus four. Count on from five: six, seven, eight, nine. To check, draw nine shapes in a row and count them one by one. The answer nine is correct.',
+        ],
+      },
+      practice: {
+        type: 'practice',
+        title: 'Practice',
+        content: [
+          'Write six sums with totals up to ten and solve them. Then say each sum and its answer out loud to a friend before you check it with a drawing.',
+        ],
+      },
+      recap: {
+        type: 'recap',
+        title: 'Recap',
+        content: [
+          'We can add within ten by counting on. Counting a second way, with pictures or a story, checks that our answer is correct.',
+        ],
       },
     },
   },
