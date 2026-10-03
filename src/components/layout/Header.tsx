@@ -18,8 +18,8 @@ export function Header() {
     <header className="header">
       <div className="header-container">
         <div className="logo">
-          <Link to={HOME_ROUTE} className="logo-link">
-            <span className="logo-text">Seekho</span>
+          <Link to={HOME_ROUTE} className="logo-link" aria-label="Seekho home">
+            <img className="logo-image" src="/seekho-logo.svg" alt="Seekho" width={709} height={154} />
           </Link>
         </div>
         <nav className="nav">

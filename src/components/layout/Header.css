@@ -17,15 +17,16 @@
 }
 
 .logo-link {
+  display: inline-flex;
+  align-items: center;
   text-decoration: none;
   border-radius: 8px;
 }
 
-.logo-text {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #2563eb;
-  letter-spacing: -0.025em;
+.logo-image {
+  display: block;
+  height: 2.25rem;
+  width: auto;
 }
 
 .nav-list {
@@ -59,5 +60,9 @@
     gap: 1rem;
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  .logo-image {
+    height: 1.9rem;
   }
 }
