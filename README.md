@@ -117,3 +117,5 @@ All learning content is data, not markup:
 The Oxlint config lives in `.oxlintrc.json`. For type-aware rules in a
 production setup, add `oxlint-tsgolint` and enable `options.typeAware` — see
 the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules).
+
+> Learning path: Home → Class → Subject → Course → Lesson → Quiz — Quiz is the next planned subsystem.

@@ -5,12 +5,14 @@ import { HomePage } from './pages/HomePage';
 import { ClassPage } from './pages/ClassPage';
 import { SubjectPage } from './pages/SubjectPage';
 import { CoursePage } from './pages/CoursePage';
+import { LessonPage } from './pages/LessonPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import './components/ui/Card.css';
 import './components/ui/ClassCard.css';
 import './components/ui/SubjectCard.css';
 import './components/ui/CourseCard.css';
 import './components/ui/CourseGrid.css';
+import './components/course/LessonList.css';
 import './components/layout/Page.css';
 import './components/layout/Header.css';
 import './components/layout/Footer.css';
@@ -18,6 +20,7 @@ import './pages/HomePage.css';
 import './pages/ClassPage.css';
 import './pages/SubjectPage.css';
 import './pages/CoursePage.css';
+import './pages/LessonPage.css';
 import './pages/NotFoundPage.css';
 
 function AppRoutes() {
@@ -38,6 +41,17 @@ function AppRoutes() {
         classId={route.classId}
         subjectSlug={route.subjectSlug}
         courseId={route.courseId}
+      />
+    );
+  }
+
+  if (route.name === 'lesson') {
+    return (
+      <LessonPage
+        classId={route.classId}
+        subjectSlug={route.subjectSlug}
+        courseId={route.courseId}
+        lessonId={route.lessonId}
       />
     );
   }

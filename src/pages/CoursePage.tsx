@@ -2,8 +2,10 @@ import { Breadcrumbs } from '../components/layout/Breadcrumbs';
 import { Footer } from '../components/layout/Footer';
 import { Header } from '../components/layout/Header';
 import { BackLink } from '../components/ui/BackLink';
+import { LessonList } from '../components/course/LessonList';
 import { getGradeById } from '../data/classes';
 import { courseStatusLabels, getCourseById } from '../data/courses';
+import { getLessonsForCourse } from '../data/lessons';
 import { getSubjectBySlug } from '../data/subjects';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { HOME_ROUTE, classPath, subjectPath } from '../router/routes';
@@ -32,6 +34,8 @@ export function CoursePage({ classId, subjectSlug, courseId }: CoursePageProps) 
     grade === undefined || subject === undefined
       ? undefined
       : getCourseById(grade.id, subject.slug, courseId);
+
+  const lessons = getLessonsForCourse(classId, subjectSlug, courseId);
 
   usePageTitle(course === undefined ? 'Course not found - Seekho' : `${course.title} - Seekho`);
 
@@ -74,11 +78,15 @@ export function CoursePage({ classId, subjectSlug, courseId }: CoursePageProps) 
                 <dd className="course-meta-value">{grade.name}</dd>
               </div>
               <div className="course-meta-item">
+                <dt className="course-meta-label">Subject</dt>
+                <dd className="course-meta-value">{subject.name}</dd>
+              </div>
+              <div className="course-meta-item">
                 <dt className="course-meta-label">Level</dt>
                 <dd className="course-meta-value">{course.level}</dd>
               </div>
               <div className="course-meta-item">
-                <dt className="course-meta-label">Lessons</dt>
+                <dt className="course-meta-label">Planned lessons</dt>
                 <dd className="course-meta-value">{lessonLabel}</dd>
               </div>
               <div className="course-meta-item">
@@ -89,30 +97,49 @@ export function CoursePage({ classId, subjectSlug, courseId }: CoursePageProps) 
           </div>
         </section>
 
-        <section className="section bg-light" aria-labelledby="course-coming-soon-title" tabIndex={-1}>
+        <section className="section bg-light" aria-labelledby="course-lessons-title" tabIndex={-1}>
           <div className="container">
-            <h2 id="course-coming-soon-title" className="section-title">
-              Course coming soon
+            <h2 id="course-lessons-title" className="section-title">
+              Lessons
             </h2>
             <p className="section-subtitle">
-              The {lessonLabel} and quizzes for this course are still being written
+              Lessons for {course.title}, listed in learning order
             </p>
 
-            <div className="course-coming-soon">
-              <p className="course-coming-soon-text">
-                This page is a placeholder. When the lessons are ready they will be
-                listed here in order, followed by a short quiz for each level of the
-                course, so you can check what you understood.
-              </p>
-              <ul className="course-coming-soon-points">
-                <li>Lesson list and progress tracking come first.</li>
-                <li>Quizzes follow the lessons, one per level.</li>
-                <li>Everything stays free and open to every student.</li>
-              </ul>
-              <BackLink to={subjectPath(grade.id, subject.slug)}>
-                Back to {subject.name}
-              </BackLink>
-            </div>
+            {lessons.length === 0 ? (
+              <div className="course-coming-soon">
+                <p className="course-coming-soon-text">
+                  Lessons coming soon for this course.
+                </p>
+                <p className="course-coming-soon-text">
+                  When the lessons are ready they will be listed here in order.
+                </p>
+                <BackLink to={subjectPath(grade.id, subject.slug)}>
+                  Back to {subject.name}
+                </BackLink>
+              </div>
+            ) : (
+              <>
+                <LessonList
+                  classId={grade.id}
+                  subjectSlug={subject.slug}
+                  courseId={course.courseId}
+                  lessons={lessons.map((lesson) => ({
+                    lessonId: lesson.lessonId,
+                    order: lesson.order,
+                    title: lesson.title,
+                    summary: lesson.summary,
+                    estimatedMinutes: lesson.estimatedMinutes,
+                    status: lesson.status,
+                  }))}
+                />
+                <div style={{ marginTop: '1.5rem' }}>
+                  <BackLink to={subjectPath(grade.id, subject.slug)}>
+                    Back to {subject.name}
+                  </BackLink>
+                </div>
+              </>
+            )}
           </div>
         </section>
       </main>

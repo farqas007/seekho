@@ -10,9 +10,19 @@ export function subjectPath(classId: string, subjectSlug: string): string {
   return `${classPath(classId)}/subject/${encodeURIComponent(subjectSlug)}`;
 }
 
-/** Path for a course page: /class/class1/subject/mathematics/course/numbers-made-simple */
+/** Path for a course page: /class/class1/subject/mathematics/course/numbers-and-counting */
 export function coursePath(classId: string, subjectSlug: string, courseId: string): string {
   return `${subjectPath(classId, subjectSlug)}/course/${encodeURIComponent(courseId)}`;
+}
+
+/** Path for a lesson page: /class/class1/subject/mathematics/course/numbers-and-counting/lesson/lesson-1 */
+export function lessonPath(
+  classId: string,
+  subjectSlug: string,
+  courseId: string,
+  lessonId: string,
+): string {
+  return `${coursePath(classId, subjectSlug, courseId)}/lesson/${encodeURIComponent(lessonId)}`;
 }
 
 export type RouteMatch =
@@ -20,6 +30,7 @@ export type RouteMatch =
   | { name: 'class'; classId: string }
   | { name: 'subject'; classId: string; subjectSlug: string }
   | { name: 'course'; classId: string; subjectSlug: string; courseId: string }
+  | { name: 'lesson'; classId: string; subjectSlug: string; courseId: string; lessonId: string }
   | { name: 'notFound'; path: string };
 
 function safeDecode(segment: string): string {
@@ -61,6 +72,21 @@ export function matchRoute(pathname: string): RouteMatch {
       classId: segments[1],
       subjectSlug: segments[3],
       courseId: segments[5],
+    };
+  }
+
+  if (
+    segments.length === 8 &&
+    segments[2] === 'subject' &&
+    segments[4] === 'course' &&
+    segments[6] === 'lesson'
+  ) {
+    return {
+      name: 'lesson',
+      classId: segments[1],
+      subjectSlug: segments[3],
+      courseId: segments[5],
+      lessonId: segments[7],
     };
   }
 
