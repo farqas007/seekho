@@ -1,0 +1,17 @@
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #1d4ed8;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.back-link-arrow {
+  flex-shrink: 0;
+}
