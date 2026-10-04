@@ -43,6 +43,22 @@ body {
 
 a {
   color: inherit;
+  text-decoration: none;
+}
+
+/**
+ * No link is underlined, in any state.
+ *
+ * The browser default underlines every anchor, so any link without its own
+ * `text-decoration` paints a coloured line under the text, most visibly on
+ * hover. Declaring it on the element and again on `:hover`/`:focus` turns it
+ * off site-wide, so no component has to opt out and no future link can bring it
+ * back. Hover and focus colour changes stay in the component rules, and this
+ * only touches `text-decoration`, so the focus ring below is untouched.
+ */
+a:hover,
+a:focus {
+  text-decoration: none;
 }
 
 /**

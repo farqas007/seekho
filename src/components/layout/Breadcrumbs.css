@@ -24,10 +24,6 @@
   text-decoration: none;
 }
 
-.breadcrumb-link:hover {
-  text-decoration: underline;
-}
-
 .breadcrumb-current {
   color: var(--ink-600);
   font-weight: var(--weight-semibold);

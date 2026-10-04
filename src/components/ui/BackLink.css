@@ -8,10 +8,6 @@
   border-radius: var(--radius-sm);
 }
 
-.back-link:hover {
-  text-decoration: underline;
-}
-
 .back-link-arrow {
   flex-shrink: 0;
 }
