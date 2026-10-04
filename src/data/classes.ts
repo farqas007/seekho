@@ -70,36 +70,20 @@ export const grades: Grade[] = [
       'A year of growing curiosity, where learners connect subjects with the places, people and events around them.',
   },
   {
-    id: 'class5',
-    name: 'Class 5',
-    description: 'Skill development',
-    stage: 'Primary',
-    summary:
-      'Skills become more independent: multi-step problems, structured writing and organised study habits.',
-  },
-  {
-    id: 'class6',
-    name: 'Class 6',
-    description: 'Middle school start',
-    stage: 'Middle School',
-    summary:
-      'The middle school journey begins, with science, mathematics and social studies taught in more depth.',
-  },
-  {
-    id: 'class7',
-    name: 'Class 7',
-    description: 'Deeper learning',
-    stage: 'Middle School',
-    summary:
-      'Learners handle longer explanations and start connecting ideas across subjects instead of in isolation.',
-  },
-  {
     id: 'class8',
     name: 'Class 8',
     description: 'Strong foundations',
     stage: 'Middle School',
     summary:
       'Strong foundations are consolidated here, with steady practice to prepare for the board years ahead.',
+  },
+  {
+    id: 'class5',
+    name: 'Class 5',
+    description: 'Skill development',
+    stage: 'Primary',
+    summary:
+      'Skills become more independent: multi-step problems, structured writing and organised study habits.',
   },
   {
     id: 'class9',
@@ -110,12 +94,28 @@ export const grades: Grade[] = [
       'Advanced concepts arrive, and every subject starts pointing towards the annual examination.',
   },
   {
+    id: 'class6',
+    name: 'Class 6',
+    description: 'Middle school start',
+    stage: 'Middle School',
+    summary:
+      'The middle school journey begins, with science, mathematics and social studies taught in more depth.',
+  },
+  {
     id: 'class10',
     name: 'Class 10',
     description: 'Board readiness',
     stage: 'Secondary',
     summary:
       'The final year of school, focused on board readiness through clear explanations and structured practice.',
+  },
+  {
+    id: 'class7',
+    name: 'Class 7',
+    description: 'Deeper learning',
+    stage: 'Middle School',
+    summary:
+      'Learners handle longer explanations and start connecting ideas across subjects instead of in isolation.',
   },
 ];
 
