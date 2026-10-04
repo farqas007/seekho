@@ -1,0 +1,202 @@
+/**
+ * Seekho design tokens.
+ *
+ * The single source of truth for colour, type, spacing, radius, elevation,
+ * motion and layout. Nothing here renders on its own: these are declarations
+ * only, so adding or retuning a value cannot change how the site looks until a
+ * later migration phase starts consuming them.
+ *
+ * Brand direction: the Seekho logo is a blue to indigo to violet gradient
+ * (#2563eb -> #4f46e5 -> #7c3aed) with an amber spark. The ramp below spans
+ * that same path, so the interface and the wordmark share one palette.
+ */
+
+:root {
+  /* ---------------------------------------------------------------------
+   * Brand: blue -> indigo -> violet
+   * ------------------------------------------------------------------- */
+
+  --brand-50: #eef4ff;
+  --brand-100: #e1e9fe;
+  --brand-200: #c7d5fe;
+  --brand-300: #a8b6fb;
+  --brand-400: #8790f5;
+  --brand-500: #6a63ec;
+  --brand-600: #4f46e5;
+  --brand-700: #4338ca;
+  --brand-800: #3a2ea6;
+  --brand-900: #2e2686;
+  --brand-950: #1e1a5a;
+
+  /* Accent: echoes the amber spark in the logo. Reserved for attention and
+   * in-progress states, never for decoration. */
+  --accent-amber: #f59e0b;
+
+  /* Text and icons that sit on a filled brand surface. */
+  --on-brand: #ffffff;
+
+  /* ---------------------------------------------------------------------
+   * Neutrals: slate, tinted towards blue so they sit with the brand
+   * ------------------------------------------------------------------- */
+
+  --ink-900: #0f172a;
+  --ink-800: #1e293b;
+  --ink-700: #334155;
+  --ink-600: #475569;
+  --ink-500: #64748b;
+  /* Decorative only: 2.56:1 on white, so never use it for text. */
+  --ink-400: #94a3b8;
+
+  --line-strong: #cbd5e1;
+  --line: #e2e8f0;
+  --line-soft: #eef2f6;
+
+  --surface: #ffffff;
+  --surface-sunken: #f8fafc;
+  --surface-muted: #f1f5f9;
+  --surface-brand-soft: var(--brand-50);
+
+  /* ---------------------------------------------------------------------
+   * Semantic colour
+   * ------------------------------------------------------------------- */
+
+  --success-fg: #15803d;
+  --success-bg: #dcfce7;
+  --success-border: #86efac;
+
+  --warning-fg: #b45309;
+  --warning-bg: #fef3c7;
+  --warning-border: #fde68a;
+
+  --danger-fg: #b91c1c;
+  /* Solid destructive surface for buttons: dark enough to carry white text. */
+  --danger-fg-strong: #991b1b;
+  --danger-bg: #fee2e2;
+  --danger-border: #fca5a5;
+
+  --info-fg: var(--brand-700);
+  --info-bg: var(--brand-50);
+  --info-border: var(--brand-200);
+
+  /* ---------------------------------------------------------------------
+   * Typography
+   *
+   * Four weights only (400 / 500 / 600 / 700) and a 1.25 scale, so hierarchy
+   * comes from size and spacing rather than from many near-identical values.
+   * ------------------------------------------------------------------- */
+
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --font-display: var(--font-sans);
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.125rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 1.875rem;
+  --text-3xl: 2.25rem;
+  --text-4xl: 3rem;
+
+  /* Hero and page titles scale with the viewport between the 2xl and 4xl steps. */
+  --text-hero: clamp(2.25rem, 1.4rem + 3.6vw, 3.75rem);
+
+  --leading-tight: 1.15;
+  --leading-snug: 1.35;
+  --leading-normal: 1.6;
+  --leading-relaxed: 1.75;
+
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.04em;
+  --tracking-wider: 0.08em;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* ---------------------------------------------------------------------
+   * Spacing: 4px base scale
+   * ------------------------------------------------------------------- */
+
+  --space-0: 0;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-7: 1.75rem;
+  --space-8: 2rem;
+  --space-9: 2.25rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-14: 3.5rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+
+  /* ---------------------------------------------------------------------
+   * Radius: rem only, so it scales with the user's text size
+   * ------------------------------------------------------------------- */
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.5rem;
+  --radius-full: 999px;
+
+  /* ---------------------------------------------------------------------
+   * Elevation: soft, low-opacity shadows tinted with the neutral ink colour
+   * ------------------------------------------------------------------- */
+
+  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 4px 12px -2px rgba(15, 23, 42, 0.08), 0 2px 6px -2px rgba(15, 23, 42, 0.05);
+  --shadow-lg: 0 12px 28px -8px rgba(15, 23, 42, 0.14), 0 4px 10px -4px rgba(15, 23, 42, 0.06);
+  --shadow-brand: 0 8px 24px -8px rgba(79, 70, 229, 0.35);
+
+  /* ---------------------------------------------------------------------
+   * Motion: short, transform and opacity only
+   * ------------------------------------------------------------------- */
+
+  --duration-fast: 120ms;
+  --duration-base: 180ms;
+  --duration-slow: 280ms;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-standard: cubic-bezier(0.2, 0, 0.2, 1);
+
+  /* ---------------------------------------------------------------------
+   * Focus
+   * ------------------------------------------------------------------- */
+
+  --focus-ring: var(--brand-600);
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 2px;
+
+  /* ---------------------------------------------------------------------
+   * Layout
+   * ------------------------------------------------------------------- */
+
+  --container: 1200px;
+  --container-gutter: 2rem;
+  --container-gutter-mobile: 1rem;
+  --container-prose: 68ch;
+
+  --tap-target: 2.75rem;
+
+  /* Breakpoints are recorded here for reference and for JS consumers.
+   * Custom properties cannot be used inside a media query, so media queries
+   * repeat these rem values literally:
+   *   --bp-sm  40rem  (640px)
+   *   --bp-md  48rem  (768px)
+   *   --bp-lg  64rem  (1024px)
+   *   --bp-xl  80rem  (1280px) */
+  --bp-sm: 40rem;
+  --bp-md: 48rem;
+  --bp-lg: 64rem;
+  --bp-xl: 80rem;
+}

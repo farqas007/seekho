@@ -1,6 +1,7 @@
 import type { Subject } from '../../data/subjects';
 import { subjectAreaLabels } from '../../data/subjects';
 import { Link } from '../../router/Link';
+import { Badge } from './Badge';
 import { Card } from './Card';
 import { SubjectIcon } from './SubjectIcon';
 import './SubjectCard.css';
@@ -27,14 +28,14 @@ export function SubjectCard({ subject, href }: SubjectCardProps) {
         <span className="subject-card-icon">
           <SubjectIcon name={subject.icon} />
         </span>
-        <span className="subject-card-area">{subjectAreaLabels[subject.area]}</span>
+        <Badge>{subjectAreaLabels[subject.area]}</Badge>
       </div>
 
       <h3 className="subject-card-title">
         {href === undefined ? (
           subject.name
         ) : (
-          <Link to={href} className="subject-card-link">
+          <Link to={href} className="subject-card-link stretched-link">
             {subject.name}
           </Link>
         )}

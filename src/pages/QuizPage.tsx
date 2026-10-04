@@ -3,7 +3,7 @@ import { Breadcrumbs } from '../components/layout/Breadcrumbs';
 import { Footer } from '../components/layout/Footer';
 import { Header } from '../components/layout/Header';
 import { BackLink } from '../components/ui/BackLink';
-import { Link } from '../router/Link';
+import { Button, ButtonLink } from '../components/ui/Button';
 import { getGradeById } from '../data/classes';
 import { getCourseById } from '../data/courses';
 import { getLessonById } from '../data/lessons';
@@ -262,27 +262,18 @@ function QuizSession({
                 </fieldset>
 
                 <div className="quiz-actions">
-                  <button
-                    type="button"
-                    className="quiz-button quiz-button-ghost"
+                  <Button
+                    variant="secondary"
                     onClick={() => moveToQuestion(currentIndex - 1)}
                     disabled={currentIndex === 0}
                   >
                     Previous
-                  </button>
+                  </Button>
 
                   {isLastQuestion ? (
-                    <button type="button" className="quiz-button quiz-button-primary" onClick={submit}>
-                      Submit Quiz
-                    </button>
+                    <Button onClick={submit}>Submit Quiz</Button>
                   ) : (
-                    <button
-                      type="button"
-                      className="quiz-button quiz-button-primary"
-                      onClick={() => moveToQuestion(currentIndex + 1)}
-                    >
-                      Next
-                    </button>
+                    <Button onClick={() => moveToQuestion(currentIndex + 1)}>Next</Button>
                   )}
                 </div>
               </div>
@@ -348,12 +339,10 @@ function QuizResult({
         )}
 
         <div className="quiz-result-actions">
-          <button type="button" className="quiz-button quiz-button-primary" onClick={onRetry}>
-            Retry Quiz
-          </button>
-          <Link to={backToLesson} className="quiz-button quiz-button-ghost">
+          <Button onClick={onRetry}>Retry Quiz</Button>
+          <ButtonLink to={backToLesson} variant="secondary">
             Back to Lesson
-          </Link>
+          </ButtonLink>
         </div>
       </div>
 
@@ -389,12 +378,12 @@ function QuizResult({
       </section>
 
       <nav className="quiz-result-links" aria-label="Quiz next steps">
-        <Link to={backToCourse} className="quiz-button quiz-button-ghost">
+        <ButtonLink to={backToCourse} variant="secondary">
           Back to course
-        </Link>
-        <Link to={backToSubject} className="quiz-button quiz-button-ghost">
+        </ButtonLink>
+        <ButtonLink to={backToSubject} variant="secondary">
           Back to subject
-        </Link>
+        </ButtonLink>
       </nav>
     </div>
   );
@@ -414,9 +403,7 @@ function QuizEmpty({ backToLesson, lessonTitle }: QuizEmptyProps) {
         This quiz does not have any questions yet. Open {lessonTitle} and read it again, then
         come back when the questions are ready.
       </p>
-      <Link to={backToLesson} className="quiz-button quiz-button-primary">
-        Back to {lessonTitle}
-      </Link>
+      <ButtonLink to={backToLesson}>Back to {lessonTitle}</ButtonLink>
     </div>
   );
 }

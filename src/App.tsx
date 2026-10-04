@@ -12,7 +12,6 @@ import './components/ui/Card.css';
 import './components/ui/ClassCard.css';
 import './components/ui/SubjectCard.css';
 import './components/ui/CourseCard.css';
-import './components/ui/CourseGrid.css';
 import './components/course/LessonList.css';
 import './components/layout/Page.css';
 import './components/layout/Header.css';

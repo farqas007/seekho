@@ -1,0 +1,113 @@
+/**
+ * Button primitive.
+ *
+ * Variants carry the visual weight, sizes carry the touch target. The global
+ * `:focus-visible` rule in `src/styles/base.css` provides the focus ring, so
+ * these rules stay out of focus styling.
+ */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0 var(--space-5);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.button-full-width {
+  width: 100%;
+}
+
+/* Sizes. `md` is the default and holds the 44px tap target from the token
+   layer, so plain buttons stay comfortable to tap. */
+
+.button-sm {
+  min-height: 2rem;
+  padding: 0 var(--space-4);
+  font-size: var(--text-sm);
+}
+
+.button-md {
+  min-height: var(--tap-target);
+}
+
+.button-lg {
+  min-height: 3.5rem;
+  padding: 0 var(--space-7);
+  font-size: var(--text-md);
+}
+
+/* Variants */
+
+.button-primary {
+  background: var(--brand-600);
+  color: var(--on-brand);
+  box-shadow: var(--shadow-brand);
+}
+
+.button-primary:hover {
+  background: var(--brand-700);
+}
+
+.button-secondary {
+  background: var(--surface);
+  border-color: var(--brand-200);
+  color: var(--brand-700);
+  box-shadow: var(--shadow-xs);
+}
+
+.button-secondary:hover {
+  background: var(--surface-brand-soft);
+  border-color: var(--brand-300);
+}
+
+.button-ghost {
+  background: transparent;
+  color: var(--ink-700);
+}
+
+.button-ghost:hover {
+  background: var(--surface-muted);
+  color: var(--ink-900);
+}
+
+.button-danger {
+  background: var(--danger-fg);
+  color: var(--on-brand);
+}
+
+.button-danger:hover {
+  background: var(--danger-fg-strong);
+}
+
+/* States. `aria-disabled` covers links that cannot carry the attribute. */
+
+.button:active {
+  transform: translateY(1px);
+}
+
+.button:disabled,
+.button[aria-disabled='true'] {
+  cursor: not-allowed;
+  opacity: 0.55;
+  box-shadow: none;
+}
+
+.button:disabled:active,
+.button[aria-disabled='true']:active {
+  transform: none;
+}

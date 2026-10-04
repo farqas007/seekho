@@ -1,0 +1,96 @@
+/**
+ * Global base layer.
+ *
+ * Element defaults, the page-wide accessibility contract and the visually
+ * hidden utility. Imported once from `src/index.css`, which is the single
+ * global stylesheet entry point.
+ *
+ * The typography and colour values below deliberately reproduce what
+ * `src/index.css` set before the token layer existed, so switching to this
+ * file changed nothing on screen at the time. The colour now reads from
+ * `tokens.css`; these element defaults stay literal until the remaining
+ * component CSS finishes its token sweep.
+ */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  /* Stops iOS Safari from inflating text in landscape, which would break the
+   * fixed container width. */
+  -webkit-text-size-adjust: 100%;
+}
+
+:root {
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  font-weight: var(--weight-regular);
+  color-scheme: light;
+  color: var(--ink-800);
+  background-color: var(--surface);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+}
+
+/**
+ * One keyboard focus ring for the whole site.
+ *
+ * Component rules that already draw a ring are more specific and therefore win,
+ * so this only adds a ring where none existed. It uses `outline` rather than
+ * `box-shadow` so it never overwrites an element's existing elevation, and
+ * because outlines do not affect layout.
+ */
+:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/**
+ * Composite controls (cards, quiz options) already paint a ring on the
+ * container through `:focus-within`. Drop the ring on the control inside it so
+ * that a single keyboard focus never draws two rings at once.
+ */
+:where(.card, .quiz-option):focus-within :where(:focus-visible) {
+  outline: none;
+}
+
+/**
+ * Respect the operating system's reduced-motion setting: movement becomes
+ * instant rather than removed, so state changes stay visible.
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Visible to screen readers only, used for extra context on cards and forms. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

@@ -32,7 +32,7 @@ export function CourseCard({ course, classId, href }: CourseCardProps) {
       </div>
 
       <h3 className="course-card-title">
-        <Link to={to} className="course-card-link">
+        <Link to={to} className="course-card-link stretched-link">
           {course.title}
         </Link>
       </h3>

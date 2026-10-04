@@ -1,9 +1,10 @@
 .footer {
-  background: #111827;
+  background: var(--ink-900);
+  /* No dark-surface text token exists yet, so this stays literal. */
   color: #d1d5db;
   text-align: center;
-  padding: 2rem 0;
-  margin-top: 2rem;
+  padding: var(--space-8) 0;
+  margin-top: var(--space-8);
 }
 
 .footer p {

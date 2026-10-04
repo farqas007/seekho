@@ -63,7 +63,9 @@ npm test         # run the unit tests once
 src/
   components/
     layout/    Header, Footer, Breadcrumbs and shared page layout CSS
-    ui/        Card, ClassCard, SubjectCard, CourseCard, CourseGrid, SubjectIcon, BackLink
+    ui/        Card, ClassCard, SubjectCard, CourseCard, CourseGrid, SubjectIcon,
+               BackLink plus the Button, Badge, Stat, SectionHeading and
+               EmptyState primitives
     course/    LessonList
   data/
     classes.ts   Grade data for the 13 classes
@@ -80,6 +82,10 @@ src/
     Link.tsx          Anchor that navigates without a reload
     routes.ts         Path builders and the route matcher
     routerContext.ts  Router context and useRouter hook
+  styles/
+    tokens.css        Design tokens: colour, type, spacing, radius, shadow, motion, layout
+    base.css          Element defaults and the global accessibility layer
+    utilities.css     Shared layout utilities: stretched link and card grid
   App.tsx             Router + route to page mapping
   main.tsx
 tests/
@@ -90,6 +96,106 @@ tests/
   subtractionCourse.test.ts  Subtraction Made Easy course, lessons and quizzes
   quizPage.test.tsx       Quiz and lesson page rendering
 ```
+
+## Design tokens
+
+Seekho now has a centralised design-token foundation in `src/styles/`, loaded
+once from `src/index.css`:
+
+- `tokens.css` — the single source of truth for colour (a blue → indigo → violet
+  brand ramp matching the logo, blue-tinted neutrals, and semantic
+  success/warning/danger), the typography scale, a 4px spacing scale, the radius
+  scale, soft brand-tinted shadows, motion tokens and the layout/container and
+  breakpoint values.
+- `base.css` — element defaults plus the global accessibility layer: one
+  `:focus-visible` ring for the whole site and `prefers-reduced-motion` support.
+- `utilities.css` — the two layout patterns every card list needs:
+  `.stretched-link`, which gives one anchor a card-sized click target, and
+  `.card-grid` with `.card-grid-item`.
+
+Tokens are plain custom properties, so nothing renders from them on its own. The
+shared primitives and the whole site UI — layout, header, footer, breadcrumbs,
+cards, the `LessonList` component and the Home, Class, Subject, Course, Lesson,
+Quiz and Not Found pages — now read from these tokens, so **every page renders
+the same blue → indigo → violet brand ramp**; the old slate/teal Lesson and Quiz
+palette is gone.
+
+To use a token, reference it from any stylesheet — there is no import step:
+
+```css
+.thing {
+  color: var(--ink-600);
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+}
+```
+
+Two conventions to keep in mind:
+
+- Breakpoints are recorded as `--bp-sm/md/lg/xl` for reference, but custom
+  properties cannot be used inside a media query, so media queries repeat the
+  rem values literally.
+- `--ink-400` sits at 2.56:1 on white and is for decoration only, never text.
+
+Visual migration happens in later phases: layout and motion come next. Routes,
+course data, lessons, quizzes and navigation are unaffected by this work.
+
+### Values that stay literal
+
+A few values have no token and are deliberately left alone, because forcing them
+onto the nearest token would move the layout or the type hierarchy:
+
+- `max-width: 1280px` for the page container — wider than `--container`
+  (1200px), so changing it would resize the layout. The 48rem hero summaries and
+  the 720px quiz column are kept for the same reason.
+- Heading sizes with no matching step: `2.75rem` (class page title), `2.5rem`
+  (subject and course titles), `2rem` (section title, mobile class title),
+  `1.75rem` (not found title), `4rem` (not found code).
+- The fluid hero title `clamp(2rem, 4vw, 3rem)` and question size
+  `clamp(1.25rem, 2.5vw, 1.6rem)`. `--text-hero` tops out at 3.75rem and would
+  enlarge the lesson and quiz titles by roughly 45% on desktop.
+- `letter-spacing` of `0.05em` and `0.06em`, and line-heights of `1.7`, `1.8`,
+  `1.3`, `1.5` and `1.4`.
+- Off-scale sizes: `0.6875rem`, `0.8125rem` and `0.9375rem` type, `6px`, `10px`
+  and `14px` radii, the `40px` step badge, the `8.5rem`/`7rem` quiz score dial,
+  the logo height and the 800–820px hero copy widths.
+- The lifted hover shadow `0 10px 30px -15px rgba(15, 23, 42, 0.4)` on lesson
+  rows and lesson navigation: there is no matching elevation token, and keeping
+  it identical in both files is what makes the two hover treatments match.
+- The footer text colour: the token set has no dark-surface text token yet.
+
+Gradients are not tokenised either. The brand-tinted panels (`.course-hero`,
+`.subject-hero`, the lesson/quiz heroes) and the three brand accents (quiz
+progress fill, quiz score dial, lesson number badge) use inline
+`linear-gradient()` over `--brand-*` stops, with `--brand-700` → `--brand-500`
+as the shared accent pair.
+
+## Shared UI primitives
+
+`src/components/ui/` now holds the primitives every page can build on. Each one
+is styled only from the tokens, imports its own CSS, and is added gradually —
+no page was restructured to use them.
+
+| Primitive | Props | Notes |
+| --- | --- | --- |
+| `Button`, `ButtonLink` | `variant` (`primary`, `secondary`, `ghost`, `danger`), `size` (`sm`, `md`, `lg`), `fullWidth` | `Button` renders a real `<button>` and defaults to `type="button"`; `ButtonLink` navigates through the router `Link` and takes `to`. The default `md` size holds the 44px tap target. |
+| `Badge` | `variant` (`brand`, `neutral`, `success`, `warning`) | Short status or category label. |
+| `Stat`, `StatRow` | `label`, `value` / `children` | Definition list of label/value pairs; `Stat` must sit inside `StatRow`. |
+| `SectionHeading` | `title`, `eyebrow`, `description`, `actions`, `align`, `level` | Section title block; `level` keeps the heading outline in order. |
+| `EmptyState` | `title`, `description`, `children` | Placeholder panel for a list with nothing in it yet. |
+
+Adopted so far, only where nothing else changes:
+
+- `stretched-link` in `ClassCard`, `SubjectCard` and `CourseCard`, replacing the
+  three copies of the click-target overlay.
+- `Badge` for the subject area label in `SubjectCard`.
+- `card-grid` and `EmptyState` in `CourseGrid`, which replaced
+  `CourseGrid.css`.
+- `Button` and `ButtonLink` for the lesson "Start Quiz" call to action and for
+  every quiz action, replacing the local `.lesson-quiz-cta` and `.quiz-button*`
+  styles. That deleted the last duplicated button styling on the site; both
+  files now only hold layout, and the quiz's mobile full-width rule is scoped to
+  the quiz containers.
 
 ## Course content so far
 

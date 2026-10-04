@@ -13,7 +13,7 @@ export function ClassCard({ grade }: ClassCardProps) {
     <Card className="class-card">
       <p className="class-card-stage">{grade.stage}</p>
       <h3 className="class-card-title">
-        <Link to={classPath(grade.id)} className="class-card-link">
+        <Link to={classPath(grade.id)} className="class-card-link stretched-link">
           {grade.name}
         </Link>
       </h3>

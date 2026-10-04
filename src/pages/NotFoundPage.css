@@ -1,31 +1,32 @@
 .not-found {
-  padding: 4rem 0 5rem;
+  padding: var(--space-16) 0 var(--space-20);
   text-align: center;
 }
 
 .not-found-code {
   margin: 0;
+  /* Larger than --text-4xl on purpose, so the size stays literal. */
   font-size: 4rem;
-  font-weight: 700;
-  color: #2563eb;
-  letter-spacing: -0.03em;
+  font-weight: var(--weight-bold);
+  color: var(--brand-600);
+  letter-spacing: var(--tracking-tight);
 }
 
 .not-found-title {
-  margin: 0 0 0.75rem 0;
+  margin: 0 0 var(--space-3) 0;
   font-size: 1.75rem;
-  font-weight: 700;
-  color: #1f2937;
+  font-weight: var(--weight-bold);
+  color: var(--ink-800);
 }
 
 .not-found-text {
   max-width: 520px;
-  margin: 0 auto 1.75rem;
-  color: #6b7280;
+  margin: 0 auto var(--space-7);
+  color: var(--ink-500);
 }
 
 .not-found-text code {
-  background: #f3f4f6;
+  background: var(--surface-muted);
   border-radius: 6px;
   padding: 0.1rem 0.35rem;
   font-size: 0.9375rem;
@@ -36,30 +37,30 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 1.25rem;
+  gap: var(--space-5);
 }
 
 .not-found-home-link {
-  color: #374151;
-  font-weight: 600;
+  color: var(--ink-700);
+  font-weight: var(--weight-semibold);
   text-decoration: none;
 }
 
 .not-found-home-link:hover {
-  color: #1d4ed8;
+  color: var(--brand-700);
   text-decoration: underline;
 }
 
 @media (max-width: 768px) {
   .not-found {
-    padding: 3rem 0 4rem;
+    padding: var(--space-12) 0 var(--space-16);
   }
 
   .not-found-code {
-    font-size: 3rem;
+    font-size: var(--text-4xl);
   }
 
   .not-found-title {
-    font-size: 1.5rem;
+    font-size: var(--text-xl);
   }
 }

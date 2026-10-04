@@ -1,34 +1,44 @@
+/**
+ * Quiz page.
+ *
+ * Styled entirely from the tokens in `src/styles/tokens.css`. The quiz actions
+ * use the shared `Button` primitive, so this file only holds quiz layout: the
+ * progress bar, the answer options, the result review and the empty state.
+ */
+
 .quiz-hero {
-  padding: 2rem 0 1.5rem;
-  background: linear-gradient(180deg, rgba(236, 254, 255, 0.7) 0%, #ffffff 100%);
+  padding: var(--space-8) 0 var(--space-6);
+  background: linear-gradient(180deg, var(--brand-50) 0%, var(--surface) 100%);
 }
 
 .quiz-hero-eyebrow {
-  margin: 1rem 0 0.5rem;
-  font-size: 0.95rem;
-  color: #0e7490;
-  font-weight: 600;
+  margin: var(--space-4) 0 var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--brand-700);
+  font-weight: var(--weight-semibold);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--tracking-wider);
 }
 
+/* Kept literal: `--text-hero` tops out at 3.75rem and would enlarge the title
+ * by roughly 45% on desktop, which changes the page layout. */
 .quiz-hero-title {
   margin: 0;
   font-size: clamp(2rem, 4vw, 3rem);
-  color: #0f172a;
-  line-height: 1.15;
+  color: var(--ink-900);
+  line-height: var(--leading-tight);
 }
 
 .quiz-hero-summary {
-  margin: 1rem 0 0;
+  margin: var(--space-4) 0 0;
   max-width: 48rem;
-  color: #334155;
-  font-size: 1.05rem;
-  line-height: 1.7;
+  color: var(--ink-700);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
 }
 
 .quiz-body {
-  padding: 2rem 0 3rem;
+  padding: var(--space-8) 0 var(--space-12);
 }
 
 .quiz-card,
@@ -36,87 +46,95 @@
 .quiz-empty {
   max-width: 720px;
   margin: 0 auto;
-  padding: 1.75rem;
-  background: #ffffff;
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  border-radius: 0.875rem;
-  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.02);
+  padding: var(--space-7);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-xs);
 }
 
 .quiz-progress {
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--space-6);
 }
 
 .quiz-progress-label {
-  margin: 0 0 0.5rem;
-  font-size: 0.875rem;
-  font-weight: 600;
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #64748b;
+  color: var(--ink-500);
 }
 
 .quiz-progress-track {
-  height: 0.5rem;
-  border-radius: 999px;
-  background: #e2e8f0;
+  height: var(--space-2);
+  border-radius: var(--radius-full);
+  background: var(--line);
   overflow: hidden;
 }
 
+/* Same two brand steps as the lesson number badge and the score circle, so the
+ * quiz reads as one piece with the lesson list. */
 .quiz-progress-fill {
   height: 100%;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #1f7a8c, #22d3ee);
-  transition: width 200ms ease;
+  border-radius: var(--radius-full);
+  background: linear-gradient(90deg, var(--brand-700), var(--brand-500));
+  transition: width var(--duration-base) var(--ease-standard);
 }
 
+/* Kept literal: the fluid range has no matching scale step. */
 .quiz-prompt {
-  margin: 0 0 1.25rem;
+  margin: 0 0 var(--space-5);
   font-size: clamp(1.25rem, 2.5vw, 1.6rem);
   line-height: 1.4;
-  color: #0f172a;
+  color: var(--ink-900);
 }
 
 .quiz-prompt:focus-visible,
 .quiz-result-title:focus-visible {
-  outline: 3px solid rgba(37, 99, 235, 0.6);
+  outline: 3px solid var(--focus-ring);
   outline-offset: 4px;
 }
 
 .quiz-options {
-  margin: 0 0 1.75rem;
+  margin: 0 0 var(--space-7);
   padding: 0;
   border: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: var(--space-3);
 }
 
 .quiz-option {
   display: flex;
   align-items: center;
   gap: 0.875rem;
-  padding: 0.9rem 1.1rem;
-  border: 1px solid rgba(15, 23, 42, 0.12);
-  border-radius: 0.75rem;
-  background: #f8fafc;
+  padding: var(--space-4) var(--space-5);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface-sunken);
   cursor: pointer;
-  transition: border-color 150ms ease, background 150ms ease, box-shadow 150ms ease;
+  transition:
+    border-color var(--duration-fast) var(--ease-standard),
+    background-color var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard);
 }
 
 .quiz-option:hover {
-  border-color: rgba(14, 116, 144, 0.45);
-  background: #f0f9ff;
+  border-color: var(--brand-400);
+  background: var(--surface-brand-soft);
 }
 
 .quiz-option-selected {
-  border-color: #0e7490;
-  background: #ecfeff;
-  box-shadow: inset 0 0 0 1px #0e7490;
+  border-color: var(--brand-600);
+  background: var(--brand-50);
+  box-shadow: inset 0 0 0 1px var(--brand-600);
 }
 
+/* The container paints the ring for the radio inside it, which is why
+ * `base.css` drops the ring on the input itself. */
 .quiz-option:focus-within {
-  outline: 3px solid rgba(37, 99, 235, 0.6);
+  outline: 3px solid var(--focus-ring);
   outline-offset: 2px;
 }
 
@@ -136,25 +154,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2rem;
-  height: 2rem;
+  width: var(--space-8);
+  height: var(--space-8);
   flex-shrink: 0;
-  border-radius: 50%;
-  border: 1px solid rgba(15, 23, 42, 0.15);
-  background: #ffffff;
-  color: #334155;
-  font-weight: 700;
-  font-size: 0.95rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
+  color: var(--ink-700);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-base);
 }
 
 .quiz-option-selected .quiz-option-marker {
-  background: #0e7490;
-  border-color: #0e7490;
-  color: #ffffff;
+  background: var(--brand-600);
+  border-color: var(--brand-600);
+  color: var(--on-brand);
 }
 
 .quiz-option-text {
-  color: #1f2937;
+  color: var(--ink-800);
   line-height: 1.5;
 }
 
@@ -162,53 +180,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 0.75rem;
-}
-
-.quiz-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  min-height: 2.75rem;
-  padding: 0.7rem 1.5rem;
-  border-radius: 0.625rem;
-  border: 1px solid transparent;
-  font: inherit;
-  font-weight: 600;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background 150ms ease, color 150ms ease, box-shadow 150ms ease;
-}
-
-.quiz-button:focus-visible {
-  outline: 3px solid rgba(37, 99, 235, 0.6);
-  outline-offset: 2px;
-}
-
-.quiz-button-primary {
-  background: #0e7490;
-  color: #ffffff;
-}
-
-.quiz-button-primary:hover {
-  background: #0b5f74;
-}
-
-.quiz-button-ghost {
-  background: #ffffff;
-  border-color: rgba(15, 23, 42, 0.15);
-  color: #1d4ed8;
-}
-
-.quiz-button-ghost:hover {
-  background: #f8fafc;
-  border-color: rgba(29, 78, 216, 0.4);
-}
-
-.quiz-button:disabled {
-  cursor: not-allowed;
-  opacity: 0.55;
+  gap: var(--space-3);
 }
 
 .quiz-result-card {
@@ -217,42 +189,43 @@
 
 .quiz-result-eyebrow {
   margin: 0;
-  font-size: 0.875rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wider);
   text-transform: uppercase;
-  color: #0e7490;
+  color: var(--brand-700);
 }
 
 .quiz-result-score {
-  margin: 0.75rem auto 1rem;
+  margin: var(--space-3) auto var(--space-4);
+  /* Unique component size: the score circle has no token and matches no step. */
   width: 8.5rem;
   height: 8.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #1f7a8c, #22d3ee);
-  color: #ffffff;
-  font-size: 2.25rem;
-  font-weight: 700;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--brand-700), var(--brand-500));
+  color: var(--on-brand);
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-bold);
 }
 
 .quiz-result-title {
   margin: 0;
-  font-size: 1.5rem;
-  color: #0f172a;
+  font-size: var(--text-xl);
+  color: var(--ink-900);
 }
 
 .quiz-result-message {
-  margin: 0.75rem 0 0;
-  color: #334155;
-  line-height: 1.7;
+  margin: var(--space-3) 0 0;
+  color: var(--ink-700);
+  line-height: var(--leading-relaxed);
 }
 
 .quiz-result-unanswered {
-  margin: 0.5rem 0 1.25rem;
-  color: #b45309;
+  margin: var(--space-2) 0 var(--space-5);
+  color: var(--warning-fg);
   font-size: 0.9375rem;
 }
 
@@ -260,8 +233,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.75rem;
-  margin-top: 1.75rem;
+  gap: var(--space-3);
+  margin-top: var(--space-7);
 }
 
 .quiz-result-unanswered + .quiz-result-actions {
@@ -270,13 +243,13 @@
 
 .quiz-review {
   max-width: 720px;
-  margin: 2rem auto 0;
+  margin: var(--space-8) auto 0;
 }
 
 .quiz-review-title {
-  margin: 0 0 1rem;
-  font-size: 1.25rem;
-  color: #0f172a;
+  margin: 0 0 var(--space-4);
+  font-size: var(--text-lg);
+  color: var(--ink-900);
 }
 
 .quiz-review-list {
@@ -285,46 +258,46 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: var(--space-3);
 }
 
 .quiz-review-item {
-  padding: 0.9rem 1.1rem;
-  border-radius: 0.75rem;
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  background: #ffffff;
-  border-left-width: 4px;
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-left-width: var(--space-1);
 }
 
 .quiz-review-correct {
-  border-left-color: #15803d;
+  border-left-color: var(--success-fg);
 }
 
 .quiz-review-incorrect {
-  border-left-color: #b91c1c;
+  border-left-color: var(--danger-fg);
 }
 
 .quiz-review-prompt {
-  margin: 0 0 0.35rem;
-  color: #0f172a;
-  font-weight: 600;
+  margin: 0 0 var(--space-2);
+  color: var(--ink-900);
+  font-weight: var(--weight-semibold);
   line-height: 1.5;
 }
 
 .quiz-review-answer {
   margin: 0;
-  color: #475569;
+  color: var(--ink-600);
   font-size: 0.9375rem;
-  line-height: 1.6;
+  line-height: var(--leading-normal);
 }
 
 .quiz-result-links {
   max-width: 720px;
-  margin: 2rem auto 0;
+  margin: var(--space-8) auto 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.75rem;
+  gap: var(--space-3);
 }
 
 .quiz-empty {
@@ -332,35 +305,46 @@
 }
 
 .quiz-empty-title {
-  margin: 0 0 0.75rem;
-  font-size: 1.35rem;
-  color: #0f172a;
+  margin: 0 0 var(--space-3);
+  font-size: var(--text-lg);
+  color: var(--ink-900);
 }
 
 .quiz-empty-text {
-  margin: 0 0 1.5rem;
-  color: #334155;
-  line-height: 1.7;
+  margin: 0 0 var(--space-6);
+  color: var(--ink-700);
+  line-height: var(--leading-relaxed);
 }
 
 @media (max-width: 640px) {
   .quiz-card,
   .quiz-result-card,
   .quiz-empty {
-    padding: 1.25rem 1.1rem;
+    padding: var(--space-5) var(--space-4);
   }
 
   .quiz-actions {
     flex-direction: column-reverse;
   }
 
-  .quiz-button {
+  /* The actions are the shared `Button` primitive, so the mobile full-width
+   * rule is scoped to the quiz containers instead of a local button class. */
+  .quiz-actions .button,
+  .quiz-result-actions .button,
+  .quiz-result-links .button,
+  .quiz-empty .button {
     width: 100%;
+  }
+
+  /* The empty-state label carries a lesson title, so at a narrow width it has
+   * to wrap instead of spilling out of a full-width button. */
+  .quiz-empty .button {
+    white-space: normal;
   }
 
   .quiz-result-score {
     width: 7rem;
     height: 7rem;
-    font-size: 1.875rem;
+    font-size: var(--text-2xl);
   }
 }

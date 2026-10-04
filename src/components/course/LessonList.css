@@ -4,17 +4,21 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: var(--space-4);
 }
 
 .lesson-list-item {
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  border-radius: 0.75rem;
-  background: #ffffff;
-  overflow: hidden;
-  transition: box-shadow 150ms ease, transform 150ms ease;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  /* No `overflow: hidden`: the link's focus ring is drawn with an outline
+   * offset outside the row, and clipping the item cut the ring off. */
+  transition:
+    box-shadow var(--duration-fast) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard);
 }
 
+/* The original tight contact shadow has no matching token and is kept as is. */
 .lesson-list-item:hover,
 .lesson-list-item:focus-within {
   box-shadow: 0 10px 30px -15px rgba(15, 23, 42, 0.4);
@@ -23,15 +27,15 @@
 
 .lesson-list-link {
   display: flex;
-  gap: 1rem;
-  padding: 1rem 1.25rem;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
   color: inherit;
   text-decoration: none;
   align-items: flex-start;
 }
 
 .lesson-list-link:focus-visible {
-  outline: 3px solid rgba(37, 99, 235, 0.6);
+  outline: 3px solid var(--focus-ring);
   outline-offset: 4px;
 }
 
@@ -39,13 +43,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #1f7a8c, #22d3ee);
-  color: #ffffff;
-  font-weight: 600;
-  font-size: 1.125rem;
+  width: var(--space-10);
+  height: var(--space-10);
+  border-radius: var(--radius-full);
+  /* Brand badge, same two steps as the quiz score circle. */
+  background: linear-gradient(135deg, var(--brand-700), var(--brand-500));
+  color: var(--on-brand);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-md);
   flex-shrink: 0;
 }
 
@@ -54,29 +59,29 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: var(--space-2);
 }
 
 .lesson-list-title {
   margin: 0;
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: #0f172a;
+  font-size: var(--text-md);
+  font-weight: var(--weight-semibold);
+  color: var(--ink-900);
   line-height: 1.3;
 }
 
 .lesson-list-summary {
   margin: 0;
-  color: #475569;
-  line-height: 1.6;
+  color: var(--ink-600);
+  line-height: var(--leading-normal);
 }
 
 .lesson-list-meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
-  font-size: 0.875rem;
-  color: #64748b;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--ink-500);
 }
 
 .lesson-list-time,
@@ -87,26 +92,26 @@
 }
 
 .lesson-list-empty {
-  padding: 2rem;
+  padding: var(--space-8);
   text-align: center;
-  background: #f8fafc;
-  border: 1px dashed rgba(15, 23, 42, 0.15);
-  border-radius: 0.75rem;
-  color: #475569;
+  background: var(--surface-sunken);
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius-md);
+  color: var(--ink-600);
 }
 
 @media (max-width: 640px) {
   .lesson-list-link {
-    padding: 0.875rem 1rem;
+    padding: 0.875rem var(--space-4);
   }
 
   .lesson-list-number {
-    width: 2rem;
-    height: 2rem;
-    font-size: 0.95rem;
+    width: var(--space-8);
+    height: var(--space-8);
+    font-size: var(--text-sm);
   }
 
   .lesson-list-title {
-    font-size: 1rem;
+    font-size: var(--text-base);
   }
 }

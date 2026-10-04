@@ -1,0 +1,68 @@
+/**
+ * Shared layout utilities.
+ *
+ * Imported once from `src/index.css`, after the base layer, so the utilities
+ * are available to every component stylesheet without extra imports.
+ *
+ * Only patterns that several components need today live here. A utility that
+ * grows variants, states or visual styling belongs in a component instead.
+ */
+
+/**
+ * Full-card link.
+ *
+ * The anchor stays the only focusable element in the card, while a transparent
+ * overlay makes the whole card clickable. The container must be
+ * `position: relative`, and a container with a different radius should override
+ * the overlay radius alongside it.
+ */
+.stretched-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.stretched-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  /* Matches the default card radius; override for other container shapes. */
+  border-radius: var(--radius-md);
+}
+
+/**
+ * Responsive grid of cards.
+ *
+ * Pair it with `.card-grid-item` on each list item so cards in a row stretch to
+ * the same height.
+ */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card-grid-item {
+  display: flex;
+}
+
+.card-grid-item > * {
+  width: 100%;
+}
+
+/* The two breakpoints the course grid already used, kept literal so the grid
+   keeps its current column counts. They are deliberately not the `--bp-*`
+   steps from `tokens.css`. */
+@media (max-width: 900px) {
+  .card-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}

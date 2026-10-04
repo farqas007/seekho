@@ -1,55 +1,65 @@
+/**
+ * Lesson page.
+ *
+ * Styled entirely from the tokens in `src/styles/tokens.css`, like every other
+ * page. The lesson call to action is the shared `Button` primitive, so this file
+ * only holds the lesson layout and the reading blocks.
+ */
+
 .lesson-hero {
-  padding: 2rem 0 1.5rem;
-  background: linear-gradient(180deg, rgba(236, 254, 255, 0.7) 0%, #ffffff 100%);
+  padding: var(--space-8) 0 var(--space-6);
+  background: linear-gradient(180deg, var(--brand-50) 0%, var(--surface) 100%);
 }
 
 .lesson-hero-eyebrow {
-  margin: 1rem 0 0.5rem;
-  font-size: 0.95rem;
-  color: #0e7490;
-  font-weight: 600;
+  margin: var(--space-4) 0 var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--brand-700);
+  font-weight: var(--weight-semibold);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--tracking-wider);
 }
 
+/* Kept literal: `--text-hero` tops out at 3.75rem and would enlarge the title
+ * by roughly 45% on desktop, which changes the page layout. */
 .lesson-hero-title {
   margin: 0;
   font-size: clamp(2rem, 4vw, 3rem);
-  color: #0f172a;
-  line-height: 1.15;
+  color: var(--ink-900);
+  line-height: var(--leading-tight);
 }
 
 .lesson-hero-summary {
-  margin: 1rem 0 0;
+  margin: var(--space-4) 0 0;
   max-width: 48rem;
-  color: #334155;
-  font-size: 1.05rem;
-  line-height: 1.7;
+  color: var(--ink-700);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
 }
 
 .lesson-content {
-  padding: 2rem 0;
+  padding: var(--space-8) 0;
 }
 
 .lesson-block {
-  margin-bottom: 1.75rem;
-  padding: 1.5rem 1.75rem;
-  background: #ffffff;
-  border: 1px solid rgba(15, 23, 42, 0.06);
-  border-radius: 0.875rem;
-  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.02);
+  margin-bottom: var(--space-7);
+  padding: var(--space-6) var(--space-7);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-xs);
 }
 
 .lesson-block-title {
-  margin: 0 0 0.75rem;
-  font-size: 1.3rem;
-  color: #0f172a;
+  margin: 0 0 var(--space-3);
+  font-size: var(--text-lg);
+  color: var(--ink-900);
 }
 
 .lesson-block-text {
-  margin: 0 0 0.9rem;
-  color: #334155;
-  line-height: 1.8;
+  margin: 0 0 var(--space-4);
+  color: var(--ink-700);
+  line-height: var(--leading-relaxed);
 }
 
 .lesson-block-text:last-child {
@@ -57,49 +67,29 @@
 }
 
 .lesson-block-list {
-  margin: 0.5rem 0 0 1.5rem;
-  color: #334155;
-  line-height: 1.8;
+  margin: var(--space-2) 0 0 var(--space-6);
+  color: var(--ink-700);
+  line-height: var(--leading-relaxed);
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: var(--space-2);
 }
 
+/* Closing block: the same brand tint the hero fades from, so the quiz hand-off
+ * reads as part of the page rather than a separate panel. */
 .lesson-next-info {
-  background: linear-gradient(135deg, rgba(236, 254, 255, 0.8), rgba(240, 249, 255, 0.9));
-  border-color: rgba(14, 116, 144, 0.25);
-}
-
-.lesson-quiz-cta {
-  display: inline-flex;
-  align-items: center;
-  min-height: 2.75rem;
-  padding: 0.7rem 1.5rem;
-  border-radius: 0.625rem;
-  background: #0e7490;
-  color: #ffffff;
-  font-weight: 600;
-  text-decoration: none;
-  transition: background 150ms ease, box-shadow 150ms ease;
-}
-
-.lesson-quiz-cta:hover {
-  background: #0b5f74;
-}
-
-.lesson-quiz-cta:focus-visible {
-  outline: 3px solid rgba(37, 99, 235, 0.6);
-  outline-offset: 3px;
+  background: linear-gradient(135deg, var(--brand-50) 0%, var(--surface) 100%);
+  border-color: var(--brand-200);
 }
 
 .lesson-navigation {
-  padding: 1.5rem 0 3rem;
+  padding: var(--space-6) 0 var(--space-12);
 }
 
 .lesson-nav-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  gap: var(--space-4);
 }
 
 .lesson-nav-item {
@@ -109,21 +99,25 @@
 .lesson-nav-link {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
-  padding: 0.9rem 1.1rem;
-  border: 1px solid rgba(15, 23, 42, 0.12);
-  border-radius: 0.75rem;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-5);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
   text-decoration: none;
   color: inherit;
-  background: #ffffff;
-  transition: box-shadow 150ms ease, transform 150ms ease;
+  background: var(--surface);
+  transition:
+    box-shadow var(--duration-fast) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard);
 }
 
+/* The lifted contact shadow has no matching token and is kept as is, so the
+ * lesson cards and the lesson navigation still lift the same amount. */
 .lesson-nav-link:hover,
 .lesson-nav-link:focus-visible {
   box-shadow: 0 10px 30px -15px rgba(15, 23, 42, 0.4);
   transform: translateY(-1px);
-  outline: 3px solid rgba(37, 99, 235, 0.6);
+  outline: 3px solid var(--focus-ring);
   outline-offset: 4px;
 }
 
@@ -136,16 +130,16 @@
 }
 
 .lesson-nav-label {
-  font-size: 0.85rem;
-  color: #64748b;
+  font-size: var(--text-sm);
+  color: var(--ink-500);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--tracking-wider);
 }
 
 .lesson-nav-title {
-  font-weight: 600;
-  color: #0f172a;
-  line-height: 1.4;
+  font-weight: var(--weight-semibold);
+  color: var(--ink-900);
+  line-height: var(--leading-snug);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -155,11 +149,12 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 0.9rem 1.1rem;
-  border: 1px dashed rgba(15, 23, 42, 0.25);
-  border-radius: 0.75rem;
-  color: #94a3b8;
-  font-size: 0.95rem;
+  padding: var(--space-4) var(--space-5);
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius-md);
+  /* Decorative placeholder: it is aria-hidden, so the muted ink is fine. */
+  color: var(--ink-400);
+  font-size: var(--text-base);
 }
 
 .lesson-nav-placeholder-next {
@@ -182,6 +177,6 @@
 
 @media (max-width: 640px) {
   .lesson-block {
-    padding: 1.25rem 1.35rem;
+    padding: var(--space-5) var(--space-6);
   }
 }

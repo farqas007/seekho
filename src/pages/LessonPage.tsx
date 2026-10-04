@@ -2,13 +2,13 @@ import { Breadcrumbs } from '../components/layout/Breadcrumbs';
 import { Footer } from '../components/layout/Footer';
 import { Header } from '../components/layout/Header';
 import { BackLink } from '../components/ui/BackLink';
+import { ButtonLink } from '../components/ui/Button';
 import { getGradeById } from '../data/classes';
 import { getCourseById } from '../data/courses';
 import { getLessonById, getLessonsForCourse, getNextLesson, getPreviousLesson } from '../data/lessons';
 import { getQuizForLesson, hasQuestions } from '../data/quizzes';
 import { getSubjectBySlug } from '../data/subjects';
 import { usePageTitle } from '../hooks/usePageTitle';
-import { Link } from '../router/Link';
 import {
   HOME_ROUTE,
   classPath,
@@ -313,12 +313,9 @@ function QuizCallout({ classId, subjectSlug, courseId, lessonId }: QuizCalloutPr
             Ready to check what you remember? Take the short quiz for this lesson - it has{' '}
             {quiz.questions.length} {quiz.questions.length === 1 ? 'question' : 'questions'}.
           </p>
-          <Link
-            to={quizPath(classId, subjectSlug, courseId, lessonId, quiz.quizId)}
-            className="lesson-quiz-cta"
-          >
+          <ButtonLink to={quizPath(classId, subjectSlug, courseId, lessonId, quiz.quizId)}>
             {hasQuestions(quiz) ? 'Start Quiz' : 'View quiz'}
-          </Link>
+          </ButtonLink>
         </>
       )}
     </article>
