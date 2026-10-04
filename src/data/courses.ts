@@ -84,6 +84,15 @@ export const courseTemplates: Record<SubjectSlug, readonly CourseTemplate[]> = {
       status: 'available',
     },
     {
+      id: 'subtraction-made-easy',
+      stage: 'Building skills',
+      title: 'Subtraction Made Easy',
+      description: 'Taking things away, counting back and finding how many are left with pictures and short stories.',
+      level: 'Beginner',
+      lessonCount: 7,
+      status: 'available',
+    },
+    {
       id: 'shapes-and-patterns',
       stage: 'Building skills',
       title: 'Shapes and Patterns',

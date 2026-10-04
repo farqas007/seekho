@@ -34,9 +34,10 @@ export interface Lesson {
 }
 
 // Lessons are plain data: one entry per lesson, matched by class, subject and
-// course id. Two Class 1 Mathematics courses are written so far -
-// Numbers Made Simple (numbers-and-counting) and Addition Made Easy
-// (addition-made-easy). Every lesson keeps the same six content blocks.
+// course id. Three Class 1 Mathematics courses are written so far -
+// Numbers Made Simple (numbers-and-counting), Addition Made Easy
+// (addition-made-easy) and Subtraction Made Easy (subtraction-made-easy).
+// Every lesson keeps the same six content blocks.
 const lessonsData: Lesson[] = [
   {
     lessonId: 'lesson-1',
@@ -734,6 +735,405 @@ const lessonsData: Lesson[] = [
         title: 'Recap',
         content: [
           'We can add within ten by counting on. Counting a second way, with pictures or a story, checks that our answer is correct.',
+        ],
+      },
+    },
+  },
+  {
+    lessonId: 'subtraction-lesson-1',
+    courseId: 'subtraction-made-easy',
+    classId: 'class1',
+    subjectSlug: 'mathematics',
+    order: 1,
+    title: 'Introduction to Subtraction',
+    summary: 'Learn that subtraction takes objects away and tells us how many are left.',
+    estimatedMinutes: 15,
+    status: 'available',
+    content: {
+      intro: {
+        type: 'intro',
+        title: 'Introduction',
+        content: [
+          'You already know how to count a group of things. Now let us learn what happens when some of those things go away.',
+        ],
+      },
+      keyPoints: {
+        type: 'keyPoints',
+        title: 'Key Points',
+        list: [
+          'Subtraction takes objects away from a group',
+          'We say minus when we subtract',
+          'The objects that stay behind are called what is left',
+        ],
+      },
+      explanation: {
+        type: 'explanation',
+        title: 'Explanation',
+        content: [
+          'When some objects leave a group, we are subtracting. We say how many there were, we say minus, and we say how many went away. Then we work out how many are left behind.',
+        ],
+      },
+      example: {
+        type: 'example',
+        title: 'Example',
+        content: [
+          'Five fish swim in a bowl and two fish are lifted out to look at. Five minus two leaves three fish in the bowl.',
+        ],
+      },
+      practice: {
+        type: 'practice',
+        title: 'Practice',
+        content: [
+          'Gather a small group of toys such as blocks or coins. Count them, quietly take two away, and ask a friend to work out how many are left.',
+        ],
+      },
+      recap: {
+        type: 'recap',
+        title: 'Recap',
+        content: [
+          'Subtraction takes objects away. We say the first number, say minus, say the number that went away, and find how many are left.',
+        ],
+      },
+    },
+  },
+  {
+    lessonId: 'subtraction-lesson-2',
+    courseId: 'subtraction-made-easy',
+    classId: 'class1',
+    subjectSlug: 'mathematics',
+    order: 2,
+    title: 'Taking Away One',
+    summary: 'Subtract one by stepping back to the number just before the one you said.',
+    estimatedMinutes: 10,
+    status: 'available',
+    content: {
+      intro: {
+        type: 'intro',
+        title: 'Introduction',
+        content: [
+          'Taking away just one is the smallest subtraction there is, so it is a smart habit to build first.',
+        ],
+      },
+      keyPoints: {
+        type: 'keyPoints',
+        title: 'Key Points',
+        list: [
+          'Taking away one makes a number one smaller',
+          'We count back by one to find the answer',
+          'The number just before the one we said is the answer',
+        ],
+      },
+      explanation: {
+        type: 'explanation',
+        title: 'Explanation',
+        content: [
+          'When only one object goes away we do not need to count the whole group again. We say the number we had and step back once, to the number just before it. That smaller number is what is left.',
+        ],
+      },
+      example: {
+        type: 'example',
+        title: 'Example',
+        content: [
+          'A basket holds six mangoes and one mango is given away. Count back one from six: six, five. Five mangoes stay in the basket.',
+        ],
+      },
+      practice: {
+        type: 'practice',
+        title: 'Practice',
+        content: [
+          'Say a number between one and ten to someone at home. Ask them to take away one and say the number they land on.',
+        ],
+      },
+      recap: {
+        type: 'recap',
+        title: 'Recap',
+        content: [
+          'Taking away one means counting back by one. The number just before the number we started with is what is left.',
+        ],
+      },
+    },
+  },
+  {
+    lessonId: 'subtraction-lesson-3',
+    courseId: 'subtraction-made-easy',
+    classId: 'class1',
+    subjectSlug: 'mathematics',
+    order: 3,
+    title: 'Subtracting Within 5',
+    summary: 'Subtract small numbers and count back to answers up to five.',
+    estimatedMinutes: 15,
+    status: 'available',
+    content: {
+      intro: {
+        type: 'intro',
+        title: 'Introduction',
+        content: [
+          'Numbers up to five are easy to picture in our head, which makes them the perfect place to become quick.',
+        ],
+      },
+      keyPoints: {
+        type: 'keyPoints',
+        title: 'Key Points',
+        list: [
+          'Small numbers are quick to subtract',
+          'We count back one step for each object taken away',
+          'Saying each step slowly stops us from skipping one',
+        ],
+      },
+      explanation: {
+        type: 'explanation',
+        title: 'Explanation',
+        content: [
+          'With small numbers we can hold the whole group in our head. We say the first number, then count back once for every object that went away. The number we reach is how many are left.',
+        ],
+      },
+      example: {
+        type: 'example',
+        title: 'Example',
+        content: [
+          'A plate holds four cookies and two of them are eaten. Count back from four: three, two. Two cookies are left on the plate.',
+        ],
+      },
+      practice: {
+        type: 'practice',
+        title: 'Practice',
+        content: [
+          'Draw two short rows of dots using numbers up to five. Choose some dots to take away in your head, then write how many are left.',
+        ],
+      },
+      recap: {
+        type: 'recap',
+        title: 'Recap',
+        content: [
+          'Subtracting within five means counting back a few steps from the number we started with and naming the number we land on.',
+        ],
+      },
+    },
+  },
+  {
+    lessonId: 'subtraction-lesson-4',
+    courseId: 'subtraction-made-easy',
+    classId: 'class1',
+    subjectSlug: 'mathematics',
+    order: 4,
+    title: 'Subtracting Within 10',
+    summary: 'Count back carefully to find how many are left when the numbers reach ten.',
+    estimatedMinutes: 15,
+    status: 'available',
+    content: {
+      intro: {
+        type: 'intro',
+        title: 'Introduction',
+        content: [
+          'The numbers are bigger now, but the method stays the same. Ten is a comfortable place to stop.',
+        ],
+      },
+      keyPoints: {
+        type: 'keyPoints',
+        title: 'Key Points',
+        list: [
+          'Counting back is still the best tool',
+          'One step back means one object taken away',
+          'Saying each step clearly keeps us on track',
+        ],
+      },
+      explanation: {
+        type: 'explanation',
+        title: 'Explanation',
+        content: [
+          'We start at the number we had and step back once for every object that went away. The only difficulty now is that there are more steps, so each number must be said clearly so no step is missed.',
+        ],
+      },
+      example: {
+        type: 'example',
+        title: 'Example',
+        content: [
+          'Eight balloons are tied to a gate and three float away. Count back from eight: seven, six, five. Five balloons stay at the gate.',
+        ],
+      },
+      practice: {
+        type: 'practice',
+        title: 'Practice',
+        content: [
+          'Roll a dice to find how many you have, then roll it again to find how many go away. Count back out loud and say how many are left.',
+        ],
+      },
+      recap: {
+        type: 'recap',
+        title: 'Recap',
+        content: [
+          'To subtract within ten we count back one step for each object taken away, and the number we land on is what is left.',
+        ],
+      },
+    },
+  },
+  {
+    lessonId: 'subtraction-lesson-5',
+    courseId: 'subtraction-made-easy',
+    classId: 'class1',
+    subjectSlug: 'mathematics',
+    order: 5,
+    title: 'Subtraction Using Pictures',
+    summary: 'Draw each object, cross out the ones that go away and count what is left.',
+    estimatedMinutes: 15,
+    status: 'available',
+    content: {
+      intro: {
+        type: 'intro',
+        title: 'Introduction',
+        content: [
+          'A drawing can make a subtraction clear before the numbers feel difficult. Paper and pencil are our best helpers.',
+        ],
+      },
+      keyPoints: {
+        type: 'keyPoints',
+        title: 'Key Points',
+        list: [
+          'Draw one shape for every object',
+          'Cross out the shapes that are taken away',
+          'Count only the shapes that are not crossed out',
+        ],
+      },
+      explanation: {
+        type: 'explanation',
+        title: 'Explanation',
+        content: [
+          'Draw a shape for each object, one shape for one object and never more. Cross out the shapes that go away. Now count the shapes you did not cross out, because that count is the answer.',
+        ],
+      },
+      example: {
+        type: 'example',
+        title: 'Example',
+        content: [
+          'To take three away from seven, draw seven leaves in a row. Cross out three of them and four leaves are still drawn, so four are left.',
+        ],
+      },
+      practice: {
+        type: 'practice',
+        title: 'Practice',
+        content: [
+          'Choose three subtraction sums within ten. Draw each one, cross out the objects that go away, and count the shapes that are left.',
+        ],
+      },
+      recap: {
+        type: 'recap',
+        title: 'Recap',
+        content: [
+          'Pictures make subtraction visible. Cross out what goes away and count the shapes that stay.',
+        ],
+      },
+    },
+  },
+  {
+    lessonId: 'subtraction-lesson-6',
+    courseId: 'subtraction-made-easy',
+    classId: 'class1',
+    subjectSlug: 'mathematics',
+    order: 6,
+    title: 'Simple Subtraction Stories',
+    summary: 'Read a short story, find both numbers and count back to solve it.',
+    estimatedMinutes: 15,
+    status: 'available',
+    content: {
+      intro: {
+        type: 'intro',
+        title: 'Introduction',
+        content: [
+          'Stories bring numbers into real life, and many short stories are subtraction dressed up.',
+        ],
+      },
+      keyPoints: {
+        type: 'keyPoints',
+        title: 'Key Points',
+        list: [
+          'Words like away, left, gave and spent are clues',
+          'We need the number we start with and the number that goes away',
+          'Reading a story twice keeps us from missing a number',
+        ],
+      },
+      explanation: {
+        type: 'explanation',
+        title: 'Explanation',
+        content: [
+          'In a subtraction story we are hunting for two numbers: how many there were to begin with, and how many went away. We read the story twice, find those two numbers and count back to answer the question.',
+        ],
+      },
+      example: {
+        type: 'example',
+        title: 'Example',
+        content: [
+          'Priya had eight crayons in her box and two of them snapped. The broken crayons were thrown away, so eight minus two leaves six crayons in the box.',
+        ],
+      },
+      practice: {
+        type: 'practice',
+        title: 'Practice',
+        content: [
+          'Make up a short story about your own toys where some of them are taken away. Write the two numbers and solve the story you wrote.',
+        ],
+      },
+      recap: {
+        type: 'recap',
+        title: 'Recap',
+        content: [
+          'A story where things go away is a subtraction sum. Find both numbers in the story and count back to answer it.',
+        ],
+      },
+    },
+  },
+  {
+    lessonId: 'subtraction-lesson-7',
+    courseId: 'subtraction-made-easy',
+    classId: 'class1',
+    subjectSlug: 'mathematics',
+    order: 7,
+    title: 'Subtraction Practice',
+    summary: 'Mix counting back, pictures and stories, and check each answer by adding it back.',
+    estimatedMinutes: 15,
+    status: 'available',
+    content: {
+      intro: {
+        type: 'intro',
+        title: 'Introduction',
+        content: [
+          'Skills become strong when we mix them, so let us now practise subtraction from several directions.',
+        ],
+      },
+      keyPoints: {
+        type: 'keyPoints',
+        title: 'Key Points',
+        list: [
+          'Counting back, pictures and stories all check each other',
+          'Adding the answer back is a strong way to check',
+          'Reading the whole question first prevents silly mistakes',
+        ],
+      },
+      explanation: {
+        type: 'explanation',
+        title: 'Explanation',
+        content: [
+          'When an answer does not feel right we can check it. We count back to find the answer, then add that answer to the number that was taken away. If we land on the number we started with, our answer is correct.',
+        ],
+      },
+      example: {
+        type: 'example',
+        title: 'Example',
+        content: [
+          'Nine minus four. Count back: nine, eight, seven, six, five. Five is left. To check, add five and four and we reach nine again.',
+        ],
+      },
+      practice: {
+        type: 'practice',
+        title: 'Practice',
+        content: [
+          'Write six subtraction sums within ten and solve them. Check each one by adding your answer back, and circle the sums you got right.',
+        ],
+      },
+      recap: {
+        type: 'recap',
+        title: 'Recap',
+        content: [
+          'We subtract within ten by counting back, and we check our answers by adding them back again to reach the starting number.',
         ],
       },
     },

@@ -87,22 +87,26 @@ tests/
   quizzes.test.ts         Quiz lookup, question data and score calculation
   numbersCourse.test.ts   Numbers Made Simple course, lessons and quizzes
   additionCourse.test.ts  Addition Made Easy course, lessons and quizzes
+  subtractionCourse.test.ts  Subtraction Made Easy course, lessons and quizzes
   quizPage.test.tsx       Quiz and lesson page rendering
 ```
 
 ## Course content so far
 
-Two Class 1 Mathematics courses are fully written, each with seven lessons and a
+Three Class 1 Mathematics courses are fully written, each with seven lessons and a
 quiz after every lesson:
 
 | Course | Course id | Lessons |
 | --- | --- | --- |
 | Numbers Made Simple | `numbers-and-counting` | 7 |
 | Addition Made Easy | `addition-made-easy` | 7 |
+| Subtraction Made Easy | `subtraction-made-easy` | 7 |
 
-`addition-made-easy` runs from introducing addition up to mixed practice, so it
-sits directly after `numbers-and-counting` in the mathematics course list:
-`/class/class1/subject/mathematics/course/addition-made-easy`.
+`addition-made-easy` runs from introducing addition up to mixed practice and
+`subtraction-made-easy` follows it from taking objects away to mixed practice, so
+the three courses sit in learning order in the mathematics course list. The new
+course starts at
+`/class/class1/subject/mathematics/course/subtraction-made-easy`.
 
 ## Routing
 
