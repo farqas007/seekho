@@ -305,9 +305,10 @@ describe('existing Numbers Made Simple content is untouched', () => {
     expect(lessons[0]?.title).toBe('Counting from 0 to 9');
   });
 
-  it('keeps its original quizzes, including the lesson without one', () => {
+  it('keeps its original quizzes for every lesson', () => {
     const expectedQuizIds: Record<string, string> = {
       'lesson-1': 'quiz-1',
+      'lesson-2': 'quiz-2',
       'lesson-3': 'quiz-3',
       'lesson-4': 'quiz-4',
       'lesson-5': 'quiz-5',
@@ -317,12 +318,6 @@ describe('existing Numbers Made Simple content is untouched', () => {
 
     for (const lesson of getLessonsForCourse(CLASS_ID, SUBJECT_SLUG, NUMBERS_COURSE_ID)) {
       const quiz = getQuizForLesson(CLASS_ID, SUBJECT_SLUG, NUMBERS_COURSE_ID, lesson.lessonId);
-
-      // lesson-2 never had a quiz and still has none.
-      if (expectedQuizIds[lesson.lessonId] === undefined) {
-        expect(quiz).toBeUndefined();
-        continue;
-      }
 
       expect(quiz?.courseId).toBe(NUMBERS_COURSE_ID);
       expect(quiz?.lessonId).toBe(lesson.lessonId);

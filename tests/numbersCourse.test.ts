@@ -14,7 +14,7 @@ const COURSE_ID = 'numbers-and-counting';
 const EXISTING_LESSON_1 = 'lesson-1';
 const EXISTING_QUIZ_1 = 'quiz-1';
 
-const NEW_LESSONS = ['lesson-3', 'lesson-4', 'lesson-5', 'lesson-6', 'lesson-7'] as const;
+const NEW_LESSONS = ['lesson-2', 'lesson-3', 'lesson-4', 'lesson-5', 'lesson-6', 'lesson-7'] as const;
 
 describe('Numbers Made Simple course expansion', () => {
   it('all new lessons belong to numbers-and-counting', () => {

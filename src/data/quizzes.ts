@@ -118,6 +118,73 @@ const quizzesData: Quiz[] = [
     ],
   },
   {
+    quizId: 'quiz-2',
+    lessonId: 'lesson-2',
+    courseId: 'numbers-and-counting',
+    classId: 'class1',
+    subjectSlug: 'mathematics',
+    title: 'Writing Numbers 0 to 9 - Quiz',
+    description: 'Five short questions to check what you remember about writing numbers.',
+    estimatedMinutes: 5,
+    questions: [
+      {
+        questionId: 'q1',
+        prompt: 'Every number has its own shape. Why do we say that?',
+        options: [
+          { optionId: 'a', text: 'Each number is drawn in its own special way' },
+          { optionId: 'b', text: 'Each number is drawn in exactly the same way' },
+          { optionId: 'c', text: 'Only some numbers can be drawn' },
+          { optionId: 'd', text: 'The shape changes when a number gets bigger' },
+        ],
+        correctOptionId: 'a',
+      },
+      {
+        questionId: 'q2',
+        prompt: 'We write numbers from left to right. How should 1, 2 and 3 be written in one row?',
+        options: [
+          { optionId: 'a', text: '3, 2, 1' },
+          { optionId: 'b', text: '2, 1, 3' },
+          { optionId: 'c', text: '2, 3, 1' },
+          { optionId: 'd', text: '1, 2, 3' },
+        ],
+        correctOptionId: 'd',
+      },
+      {
+        questionId: 'q3',
+        prompt: 'The number 5 is written with a curve and a line. How many items does 5 show?',
+        options: [
+          { optionId: 'a', text: 'Three' },
+          { optionId: 'b', text: 'Four' },
+          { optionId: 'c', text: 'Five' },
+          { optionId: 'd', text: 'Six' },
+        ],
+        correctOptionId: 'c',
+      },
+      {
+        questionId: 'q4',
+        prompt: 'This lesson asks us to write numbers from 0 to 9. How many numbers is that?',
+        options: [
+          { optionId: 'a', text: 'Five' },
+          { optionId: 'b', text: 'Nine' },
+          { optionId: 'c', text: 'Twelve' },
+          { optionId: 'd', text: 'Ten' },
+        ],
+        correctOptionId: 'd',
+      },
+      {
+        questionId: 'q5',
+        prompt: 'Sam practises writing 0 to 9 every day. What does that help Sam to do?',
+        options: [
+          { optionId: 'a', text: 'Draw smaller shapes' },
+          { optionId: 'b', text: 'Write the numbers neatly and correctly' },
+          { optionId: 'c', text: 'Learn one new number each day' },
+          { optionId: 'd', text: 'Finish writing much faster' },
+        ],
+        correctOptionId: 'b',
+      },
+    ],
+  },
+  {
     quizId: 'quiz-3',
     lessonId: 'lesson-3',
     courseId: 'numbers-and-counting',

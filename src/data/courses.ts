@@ -71,8 +71,8 @@ export const courseTemplates: Record<SubjectSlug, readonly CourseTemplate[]> = {
       title: 'Numbers Made Simple',
       description: 'Counting, reading and writing numbers with everyday examples.',
       level: 'Beginner',
-      lessonCount: 8,
-      status: 'coming-soon',
+      lessonCount: 7,
+      status: 'available',
     },
     {
       id: 'addition-made-easy',

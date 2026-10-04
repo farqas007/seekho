@@ -150,7 +150,7 @@ describe('LessonPage rendering', () => {
     expect(html).toContain(`href="${QUIZ_URL}"`);
   });
 
-  it('points learners to a coming soon note when a lesson has no quiz', () => {
+  it('links to the quiz of lesson-2', () => {
     const html = renderPage(
       LESSON_URL.replace(LESSON_ID, 'lesson-2'),
       <LessonPage
@@ -161,7 +161,10 @@ describe('LessonPage rendering', () => {
       />,
     );
 
-    expect(html).toContain('A quiz for this lesson is coming soon');
-    expect(html).not.toContain('Start Quiz');
+    expect(html).toContain('Start Quiz');
+    expect(html).toContain(
+      `href="${LESSON_URL.replace(LESSON_ID, 'lesson-2')}/quiz/quiz-2"`,
+    );
+    expect(html).not.toContain('A quiz for this lesson is coming soon');
   });
 });

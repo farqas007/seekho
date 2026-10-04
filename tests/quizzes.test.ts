@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { getLessonById } from '../src/data/lessons';
+import { getLessonById, getLessonsForCourse } from '../src/data/lessons';
 import {
   getQuizzesForLesson,
   getQuestionsForQuiz,
@@ -10,6 +10,9 @@ import {
   type Quiz,
 } from '../src/data/quizzes';
 import { lessonPath, matchRoute, quizPath } from '../src/router/routes';
+import { grades } from '../src/data/classes';
+import { gradeSubjects } from '../src/data/subjects';
+import { getCoursesForSubject } from '../src/data/courses';
 
 const CLASS_ID = 'class1';
 const SUBJECT_SLUG = 'mathematics';
@@ -57,10 +60,6 @@ describe('quiz lookup', () => {
 
   it('lists the quizzes of a lesson', () => {
     expect(getQuizzesForLesson(CLASS_ID, SUBJECT_SLUG, COURSE_ID, LESSON_ID)).toHaveLength(1);
-  });
-
-  it('has no quiz for a lesson without one yet', () => {
-    expect(getQuizForLesson(CLASS_ID, SUBJECT_SLUG, COURSE_ID, 'lesson-2')).toBeUndefined();
   });
 
   it('returns undefined for an unknown class, subject, course or quiz id', () => {
@@ -163,5 +162,46 @@ describe('quiz links', () => {
     const lesson = getLessonById(CLASS_ID, SUBJECT_SLUG, COURSE_ID, quiz.lessonId);
 
     expect(lesson?.lessonId).toBe(quiz.lessonId);
+  });
+});
+
+describe('quiz coverage of written lessons', () => {
+  /**
+   * Walks every reachable course so the check covers all written lessons rather
+   * than one hand-picked course, and fails loudly if the walk ever finds nothing.
+   */
+  it('gives every available lesson a quiz with at least one question', () => {
+    const missing: string[] = [];
+    let checked = 0;
+
+    for (const grade of grades) {
+      for (const subject of gradeSubjects[grade.id] ?? []) {
+        for (const course of getCoursesForSubject(grade.id, subject.slug)) {
+          const lessons = getLessonsForCourse(grade.id, subject.slug, course.courseId);
+
+          for (const lesson of lessons) {
+            if (lesson.status !== 'available') {
+              continue;
+            }
+
+            checked += 1;
+
+            const quiz = getQuizForLesson(
+              grade.id,
+              subject.slug,
+              course.courseId,
+              lesson.lessonId,
+            );
+
+            if (quiz === undefined || !hasQuestions(quiz)) {
+              missing.push(`${course.courseId}/${lesson.lessonId}`);
+            }
+          }
+        }
+      }
+    }
+
+    expect(checked).toBeGreaterThan(0);
+    expect(missing).toEqual([]);
   });
 });
